@@ -309,6 +309,8 @@ h2::after {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
 }
 
 .oferta-card:hover {
@@ -318,18 +320,34 @@ h2::after {
 
 .oferta-imagen {
     position: relative;
-    height: 200px;
+    height: 220px;
+    min-height: 220px;
+    max-height: 220px;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
-.oferta-imagen img {
+.oferta-img-container {
+    position: relative;
+    height: 220px;
+    min-height: 220px;
+    max-height: 220px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.oferta-imagen img,
+.oferta-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+    display: block;
     transition: transform 0.3s ease;
 }
 
-.oferta-card:hover .oferta-imagen img {
+.oferta-card:hover .oferta-imagen img,
+.oferta-card:hover .oferta-img {
     transform: scale(1.1);
 }
 
@@ -345,11 +363,16 @@ h2::after {
     font-weight: 600;
 }
 
-.oferta-contenido {
+.oferta-contenido,
+.oferta-content {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
-.oferta-contenido h3 {
+.oferta-contenido h3,
+.oferta-content h3 {
     color: var(--primary-color);
     font-size: 1.4rem;
     margin-bottom: 1rem;
@@ -422,6 +445,7 @@ h2::after {
     font-weight: 600;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-top: auto;
 }
 
 .btn-oferta:hover {
@@ -859,7 +883,9 @@ h2::after {
     }
 
     .oferta-imagen {
-        height: 150px;
+        height: 200px;
+        min-height: 200px;
+        max-height: 200px;
     }
 
     .oferta-contenido {
@@ -987,4 +1013,128 @@ h2::after {
         width: 100%;
         justify-content: center;
     }
+}
+
+/* ===== DETALLE DESTINOS ===== */
+.detalle-destino {
+    padding: 4rem 0;
+    background-color: var(--light-color);
+    min-height: 100vh;
+}
+
+.detalle-card {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.detalle-card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.detalle-contenido {
+    padding: 2rem;
+}
+
+.detalle-contenido h1 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.detalle-info {
+    background-color: var(--light-color);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+.detalle-info p {
+    margin-bottom: 0.5rem;
+}
+
+.detalle-info p:last-child {
+    margin-bottom: 0;
+}
+
+.detalle-seccion {
+    margin: 2rem 0;
+}
+
+.detalle-seccion h2 {
+    font-size: 1.8rem;
+    text-align: left;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.detalle-seccion h2::after {
+    left: 0;
+    transform: none;
+    width: 70px;
+}
+
+.detalle-seccion ul {
+    padding-left: 1.5rem;
+}
+
+.detalle-seccion li {
+    margin-bottom: 0.7rem;
+}
+
+.btn-volver {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.9rem 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-volver:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(21, 0, 140, 0.3);
+}
+
+@media (max-width: 768px) {
+    .detalle-card img {
+        height: 250px;
+    }
+
+    .detalle-contenido {
+        padding: 1.5rem;
+    }
+
+    .detalle-seccion h2 {
+        font-size: 1.5rem;
+    }
+}
+
+.btn-oferta {
+    width: 100%;
+    padding: 0.85rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    margin-top: auto;
+}
+
+.btn-oferta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(21, 0, 140, 0.3);
 }
