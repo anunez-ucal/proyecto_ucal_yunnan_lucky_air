@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comprar Boletos</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+}
+
+/* NAV */
+nav {
+    padding: 10px;
+    background: #eee;
+    text-align: right;
+}
+
+/* BANNER */
+.banner {
+    position: relative;
+}
+
+.banner img {
+    width: 100%;
+    height: 300px;
+}
+
+.banner h1 {
+    position: absolute;
+    top: 10px;
+    left: 5%;
+    color: white;
+    background: rgba(0,0,0,0.5);
+    padding: 5px 10px;
+}
+
+/* LAYOUT */
+.main {
+    display: flex;
+    margin: 20px;
+    gap: 20px;
+}
+
+/* IZQUIERDA */
+.izquierda {
+    width: 70%;
+}
+
+/* DERECHA */
+.derecha {
+    width: 30%;
+}
+
+/* CAJAS */
+.caja {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
+}
+
+/* BOTONES */
+button {
+    background: gray;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: blue;
+}
+
+/* TABLA */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+
+/* INPUTS */
+input, select {
+    width: 90%;
+    padding: 6px;
+    margin-top: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV LOGIN -->
+<nav>
+    <a href="#">Iniciar sesión</a>
+</nav>
+
+<!-- BANNER -->
+<section class="banner">
+    <img src="assets/images/avion.jpg">
+    <h1>COMPRAR BOLETOS</h1>
+</section>
+
+<!-- CONTENIDO -->
+<div class="main">
+
+    <!-- IZQUIERDA -->
+    <div class="izquierda">
+
+        <!-- BUSCAR -->
+        <div class="caja">
+            <h2>Buscar vuelos</h2>
+
+            <form>
+                <input type="text" placeholder="Origen" required><br><br>
+                <input type="text" placeholder="Destino" required><br><br>
+            
+                <!-- FECHAS -->
+                <div style="display:flex; gap:10px; justify-content:center;">
+                    
+                    <div style="width:50%;">
+                        <label>Fecha de ida</label><br>
+                        <input type="date" required style="width:80%;">
+                    </div>
+            
+                    <div style="width:50%;">
+                        <label>Fecha de retorno</label><br>
+                        <input type="date" style="width:80%;">
+                    </div>
+            
+                </div><br>
+            
+                <input type="number" min="1" placeholder="Pasajeros" required><br><br>
+                <input type="email" placeholder="Correo" required><br><br>
+            
+                <button>Buscar</button>
+            </form>
+        </div>
+
+        <!-- VUELOS -->
+        <div class="caja">
+            <h2>Vuelos Disponibles</h2>
+
+            <table>
+                <tr>
+                    <th>Vuelo</th>
+                    <th>Ruta</th>
+                    <th>Salida</th>
+                    <th>Llegada</th>
+                    <th>Transcurso</th>
+                    <th>Precio</th>
+                    <th>Compra</th>
+                </tr>
+
+                <tr>
+                    <td>LA101</td>
+                    <td>Pekin(PEK) → Canton (CAN)</td>
+                    <td>08:00</td>
+                    <td>09:30</td>
+                    <td>1h 30m</td>
+                    <td>$120</td>
+                    <td><a href="/compra.html"><button class="btn-compra">Comprar</button></a></td>
+                </tr>
+
+                <tr>
+                    <td>LA202</td>
+                    <td>Shanghái (PVG) → Pekín (PEK)</td>
+                    <td>10:00</td>
+                    <td>11:00</td>
+                    <td>1h</td>
+                    <td>$90</td>
+                    <td><a href=""><button class="btn-compra">Comprar</button></a></td>
+                </tr>
+
+                <tr>
+                    <td>LA303</td>
+                    <td>Tianjin (TSN) → Xi'an (XIY)</td>
+                    <td>15:00</td>
+                    <td>16:00</td>
+                    <td>1h</td>
+                    <td>$80</td>
+                    <td><a href=""><button class="btn-compra">Comprar</button></a></td>
+                </tr>
+
+            </table>
+        </div>
+
+    </div>
+
+    <!-- DERECHA -->
+    <div class="derecha">
+
+        <!-- LOGIN -->
+        <div class="caja">
+            <h3>🔐 Iniciar sesión</h3>
+            <input type="email" placeholder="Correo"><br><br>
+            <input type="password" placeholder="Contraseña"><br><br>
+            <button>Ingresar</button>
+        </div>
+
+        <!-- REEMBOLSO -->
+        <div class="caja">
+            <h3>💸 Reembolso</h3>
+            <a href="reembolso.html"><button onclick="alert('Reembolso solicitado')">Solicitar</button></a>
+        </div>
+
+        <!-- PUNTOS -->
+        <div class="caja">
+            <h3>🎁 Puntos</h3>
+            <p><strong>1200 puntos</strong></p>
+            <ul>
+                <li>Descuento = 500 pts</li>
+                <li>Vuelo corto = 1000 pts</li>
+                <li>Por cada $10 tienes 1 punto</li>
+            </ul>
+            <button>Canjear</button>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
