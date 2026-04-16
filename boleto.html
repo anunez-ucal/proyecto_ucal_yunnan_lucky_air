@@ -2,81 +2,16 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Boleto</title>
-
-<style>
-body {
-    background-color: #f0f2f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: Arial;
-}
-
-/* TICKET */
-.ticket {
-    background: white;
-    width: 400px;
-    border-radius: 12px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
-    overflow: hidden;
-}
-
-/* CABECERA */
-.ticket-header {
-    background: #007BFF;
-    color: white;
-    padding: 15px;
-    text-align: center;
-    font-size: 20px;
-}
-
-/* CONTENIDO */
-.ticket-body {
-    padding: 20px;
-}
-
-.ticket-body p {
-    margin: 8px 0;
-}
-
-/* CÓDIGO */
-.ticket-code {
-    text-align: center;
-    margin-top: 15px;
-    font-weight: bold;
-    font-size: 18px;
-    color: #333;
-}
-
-/* BOTÓN */
-.btn {
-    display: block;
-    text-align: center;
-    background: gray;
-    color: white;
-    padding: 10px;
-    margin: 15px;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background: blue;
-}
-</style>
 </head>
 
 <body>
 
-<div class="ticket">
-    <div class="ticket-header">
-        Boleto Confirmado
-    </div>
+<div>
+    <h2>Boleto Confirmado</h2>
 
-    <div class="ticket-body">
+    <div>
         <p><strong>Pasajero:</strong> Juan Pérez</p>
         <p><strong>Ruta:</strong> Pekín (PEK) → Cantón (CAN)</p>
         <p><strong>Fecha:</strong> 20/04/2026</p>
@@ -86,12 +21,11 @@ body {
         <p><strong>Precio:</strong> S/ 120</p>
         <p><strong>Ganaste 12 puntos</strong></p>
 
-        <div class="ticket-code">
-            Código: ABC12345
-        </div>
+        <p><strong>Código:</strong> ABC12345</p>
     </div>
 
-    <a href="#" class="btn">Volver</a>
+    <a href="comprar_boletos.html" class="btn">Volver</a>
+    
 </div>
 
 </body>
