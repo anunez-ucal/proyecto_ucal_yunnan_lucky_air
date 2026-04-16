@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Air - Vuelos Baratos a China | Reserva Online</title>
+    <meta name="description"
+        content="Reserva vuelos baratos a China con Lucky Air. Ofertas especiales a Pekín, Shanghái, Xi'an y más destinos. Precios desde $129 USD. Viaja seguro y cómodo.">
+    <meta name="keywords"
+        content="vuelos China, vuelos baratos, Lucky Air, Pekín, Shanghái, Xi'an, reserva vuelos online, aerolínea China">
+    <meta name="author" content="Lucky Air">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://lukyair.com">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lukyair.com">
+    <meta property="og:title" content="Lucky Air - Vuelos Baratos a China">
+    <meta property="og:description"
+        content="Reserva vuelos baratos a China con Lucky Air. Ofertas especiales a Pekín, Shanghái, Xi'an y más destinos.">
+    <meta property="og:image" content="https://lukyair.com/assets/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://lukyair.com">
+    <meta property="twitter:title" content="Lucky Air - Vuelos Baratos a China">
+    <meta property="twitter:description"
+        content="Reserva vuelos baratos a China con Lucky Air. Ofertas especiales a Pekín, Shanghái, Xi'an y más destinos.">
+    <meta property="twitter:image" content="https://lukyair.com/assets/images/og-image.jpg">
+
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Airline",
+        "name": "Lucky Air",
+        "alternateName": "幸航",
+        "url": "https://lukyair.com",
+        "logo": "https://lukyair.com/assets/images/logo.png",
+        "description": "Aerolínea de bajo costo especializada en vuelos a China",
+        "foundingDate": "2004",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+51-123-4567",
+            "contactType": "customer service",
+            "availableLanguage": "Spanish"
+        },
+        "sameAs": [
+            "https://facebook.com/luckyair",
+            "https://linkedin.com/company/luckyair"
+        ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Lucky Air 幸航</div>
+            <ul class="nav-menu">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                <li class="dropdown">
+                    <a href="comunidad.html" class="nav-link">Comunidad</a>
+                    <ul class="dropdown-content">
+                        <li><a href="comunidad.html#noticias">Noticias</a></li>
+                        <li><a href="comunidad.html#blog">Blogs</a></li>
+                    </ul>
+                </li>
+                <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- SECCIÓN INICIO CON CARRUSEL -->
+    <section id="inicio" class="hero">
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="assets/images/carrusel1.jpg"
+                        alt="Alojamiento y servicios de viaje con Lucky Air - aerolínea china">
+                    <div class="carousel-caption">
+                        <h1>Buscas alojamiento... ¡Ya lo encontraste!</h1>
+                        <p>Aquí encontrarás toda la información sobre Hoteles, autos y otros servicios</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/images/carrusel2.jpg"
+                        alt="Reserva de viajes fácil con Lucky Air - vuelos baratos a China">
+                    <div class="carousel-caption">
+                        <h1>Reserva tu viaje fácil</h1>
+                        <p>Aquí encontrarás toda la información sobre Reserva y pago</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/images/carrusel3.jpg"
+                        alt="Atención al cliente 24/7 de Lucky Air - soporte para viajes">
+                    <div class="carousel-caption">
+                        <h1>¿Buscas ayuda?</h1>
+                        <p>Nosotros te ayudamos 24/7 en lo que necesites.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-prev" onclick="changeSlide(-1)">❮</button>
+            <button class="carousel-next" onclick="changeSlide(1)">❯</button>
+            <div class="carousel-dots">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAJA DE BÚSQUEDA DE VUELOS -->
+    <section class="flight-search">
+        <div class="container">
+            <div class="search-box">
+                <h2>Descubre tu próximo viaje</h2>
+                <form class="flight-form">
+                    <!-- Tipo de vuelo -->
+                    <div class="form-group">
+                        <label for="tipo-vuelo">Tipo de vuelo:</label>
+                        <select id="tipo-vuelo" name="tipo-vuelo" required>
+                            <option value="">Selecciona tipo de vuelo</option>
+                            <option value="ida-vuelta">Ida y vuelta</option>
+                            <option value="solo-ida">Solo ida</option>
+                            <option value="solo-vuelta">Solo vuelta</option>
+                        </select>
+                    </div>
+
+                    <!-- Origen -->
+                    <div class="form-group">
+                        <label for="origen">Origen:</label>
+                        <select id="origen" name="origen" required>
+                            <option value="">Selecciona origen</option>
+                            <optgroup label="China">
+                                <option value="PEK">Pekín (PEK)</option>
+                                <option value="PVG">Shanghái (PVG)</option>
+                                <option value="CAN">Cantón (CAN)</option>
+                                <option value="CTU">Chengdú (CTU)</option>
+                                <option value="XIY">Xi'an (XIY)</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <!-- Destino -->
+                    <div class="form-group">
+                        <label for="destino">Destino:</label>
+                        <select id="destino" name="destino" required>
+                            <option value="">Selecciona destino</option>
+                            <optgroup label="Nacional (China)">
+                                <option value="PEK">Pekín (PEK)</option>
+                                <option value="PVG">Shanghái (PVG)</option>
+                                <option value="CAN">Cantón (CAN)</option>
+                                <option value="CTU">Chengdú (CTU)</option>
+                                <option value="XIY">Xi'an (XIY)</option>
+                                <option value="TSN">Tianjin (TSN)</option>
+                                <option value="WUH">Wuhan (WUH)</option>
+                            </optgroup>
+                            <optgroup label="Internacional">
+                                <option value="LAX">Los Ángeles (LAX)</option>
+                                <option value="JFK">Nueva York (JFK)</option>
+                                <option value="LHR">Londres (LHR)</option>
+                                <option value="CDG">París (CDG)</option>
+                                <option value="NRT">Tokio (NRT)</option>
+                                <option value="SYD">Sídney (SYD)</option>
+                                <option value="LIM">Lima (LIM)</option>
+                                <option value="BOG">Bogotá (BOG)</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <!-- Fechas -->
+                    <div class="form-group">
+                        <label for="fecha-ida">Fecha de ida:</label>
+                        <input type="date" id="fecha-ida" name="fecha-ida" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha-vuelta">Fecha de vuelta:</label>
+                        <input type="date" id="fecha-vuelta" name="fecha-vuelta">
+                    </div>
+
+                    <!-- Cantidad de personas -->
+                    <div class="form-group">
+                        <label for="pasajeros">Pasajeros:</label>
+                        <select id="pasajeros" name="pasajeros" required>
+                            <option value="1">1 pasajero</option>
+                            <option value="2">2 pasajeros</option>
+                            <option value="3">3 pasajeros</option>
+                            <option value="4">4 pasajeros</option>
+                            <option value="5">5 pasajeros</option>
+                            <option value="6">6+ pasajeros</option>
+                        </select>
+                    </div>
+
+                    <!-- Botón buscar -->
+                    <button type="submit" class="btn-search">Buscar vuelos</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- SECCIÓN OFERTAS DE VIAJES -->
+    <section id="ofertas" class="ofertas">
+        <div class="container">
+            <h2>Ofertas Especiales de Viajes</h2>
+            <div class="ofertas-grid">
+                <div class="oferta-card">
+                    <div class="oferta-imagen">
+                        <img src="assets/images/beijing1.jpg" alt="Pekín">
+                        <span class="oferta-badge">Ida y Vuelta</span>
+                    </div>
+                    <div class="oferta-contenido">
+                        <h3><a href="https://es.wikipedia.org/wiki/Pek%C3%ADn" target="_blank"
+                                class="destino-link">Pekín - La Ciudad Prohibida</a></h3>
+                        <div class="ruta-info">
+                            <p><strong>Ruta:</strong> Shanghái (PVG) → Pekín (PEK)</p>
+                            <p><strong>Fechas:</strong> 05 Jul - 12 Jul 2026</p>
+                        </div>
+                        <div class="precio-info">
+                            <div class="precio">
+                                <span class="moneda">USD</span>
+                                <span class="cantidad">$189</span>
+                            </div>
+                            <div class="precio">
+                                <span class="moneda">CNY</span>
+                                <span class="cantidad">¥1,299</span>
+                            </div>
+                        </div>
+                        <button class="btn-oferta" onclick="window.location.href='pekin.html'">Ver Detalles</button>
+                    </div>
+                </div>
+
+
+                <div class="oferta-card">
+                    <div class="oferta-imagen">
+                        <img src="assets/images/canton1.jpg" alt="Cantón">
+                        <span class="oferta-badge">Ida y Vuelta</span>
+                    </div>
+                    <div class="oferta-contenido">
+                        <h3><a href="https://es.wikipedia.org/wiki/Cant%C3%B3n_(ciudad)" target="_blank"
+                                class="destino-link">Cantón - Aventura en el Sur</a></h3>
+                        <div class="ruta-info">
+                            <p><strong>Ruta:</strong> Pekín (PEK) → Cantón (CAN)</p>
+                            <p><strong>Fechas:</strong> 12 Jul - 19 Jul 2026</p>
+                        </div>
+                        <div class="precio-info">
+                            <div class="precio">
+                                <span class="moneda">USD</span>
+                                <span class="cantidad">$199</span>
+                            </div>
+                            <div class="precio">
+                                <span class="moneda">CNY</span>
+                                <span class="cantidad">¥1,359</span>
+                            </div>
+                        </div>
+                        <button class="btn-oferta" onclick="window.location.href='canton.html'">Ver Detalles</button>
+                    </div>
+                </div>
+
+                <div class="oferta-card">
+                    <div class="oferta-imagen">
+                        <img src="assets/images/xian1.jpg" alt="Xi'an">
+                        <span class="oferta-badge">Ida y Vuelta</span>
+                    </div>
+                    <div class="oferta-contenido">
+                        <h3><a href="https://es.wikipedia.org/wiki/Xi%27an" target="_blank" class="destino-link">Xi'an -
+                                Tierra de Emperadores</a></h3>
+                        <div class="ruta-info">
+                            <p><strong>Ruta:</strong> Tianjin (TSN) → Xi'an (XIY)</p>
+                            <p><strong>Fechas:</strong> 15 Jul - 22 Jul 2026</p>
+                        </div>
+                        <div class="precio-info">
+                            <div class="precio">
+                                <span class="moneda">USD</span>
+                                <span class="cantidad">$169</span>
+                            </div>
+                            <div class="precio">
+                                <span class="moneda">CNY</span>
+                                <span class="cantidad">¥1,156</span>
+                            </div>
+                        </div>
+                        <button class="btn-oferta" onclick="window.location.href='xian.html'">Ver Detalles</button>
+                    </div>
+                </div>
+
+                <div class="oferta-card">
+                    <div class="oferta-imagen">
+                        <img src="assets/images/chengdu1.jpg" alt="Chengdú">
+                        <span class="oferta-badge">Ida y Vuelta</span>
+                    </div>
+                    <div class="oferta-contenido">
+                        <h3><a href="https://es.wikipedia.org/wiki/Chengd%C3%BA" target="_blank"
+                                class="destino-link">Chengdú - Naturaleza Pura</a></h3>
+                        <div class="ruta-info">
+                            <p><strong>Ruta:</strong> Shanghái (PVG) → Chengdú (CTU)</p>
+                            <p><strong>Fechas:</strong> 18 Jul - 25 Jul 2026</p>
+                        </div>
+                        <div class="precio-info">
+                            <div class="precio">
+                                <span class="moneda">USD</span>
+                                <span class="cantidad">$159</span>
+                            </div>
+                            <div class="precio">
+                                <span class="moneda">CNY</span>
+                                <span class="cantidad">¥1,088</span>
+                            </div>
+                        </div>
+                        <button class="btn-oferta" onclick="window.location.href='chengdu.html'">Ver Detalles</button>
+                    </div>
+                </div>
+
+                <div class="oferta-card">
+                    <div class="oferta-imagen">
+                        <img src="assets/images/hangzhou1.jpg" alt="Hangzhou">
+                        <span class="oferta-badge">Ida y Vuelta</span>
+                    </div>
+                    <div class="oferta-contenido">
+                        <h3><a href="https://es.wikipedia.org/wiki/Hangzhou" target="_blank"
+                                class="destino-link">Hangzhou - Lago del Oeste</a></h3>
+                        <div class="ruta-info">
+                            <p><strong>Ruta:</strong> Pekín (PEK) → Hangzhou (HGH)</p>
+                            <p><strong>Fechas:</strong> 25 Jul - 01 Aug 2026</p>
+                        </div>
+                        <div class="precio-info">
+                            <div class="precio">
+                                <span class="moneda">USD</span>
+                                <span class="cantidad">$179</span>
+                            </div>
+                            <div class="precio">
+                                <span class="moneda">CNY</span>
+                                <span class="cantidad">¥1,223</span>
+                            </div>
+                        </div>
+                        <button class="btn-oferta" onclick="window.location.href='hangzhou.html'">Ver Detalles</button>
+                    </div>
+                </div>
+
+                <div class="oferta-card">
+                    <div class="oferta-imagen">
+                        <img src="assets/images/suzhou1.jpg" alt="Suzhou">
+                        <span class="oferta-badge">Ida y Vuelta</span>
+                    </div>
+                    <div class="oferta-contenido">
+                        <h3><a href="https://es.wikipedia.org/wiki/Suzhou" target="_blank" class="destino-link">Suzhou -
+                                Venecia de Oriente</a></h3>
+                        <div class="ruta-info">
+                            <p><strong>Ruta:</strong> Shanghái (PVG) → Suzhou (SZV)</p>
+                            <p><strong>Fechas:</strong> 28 Jul - 04 Aug 2026</p>
+                        </div>
+                        <div class="precio-info">
+                            <div class="precio">
+                                <span class="moneda">USD</span>
+                                <span class="cantidad">$129</span>
+                            </div>
+                            <div class="precio">
+                                <span class="moneda">CNY</span>
+                                <span class="cantidad">¥883</span>
+                            </div>
+                        </div>
+                        <button class="btn-oferta" onclick="window.location.href='suzhou.html'">Ver Detalles</button>
+                    </div>
+                </div>
+
+                <div class="oferta-card">
+                    <div class="oferta-imagen">
+                        <img src="assets/images/nanjing1.jpg" alt="Nanjing">
+                        <span class="oferta-badge">Ida y Vuelta</span>
+                    </div>
+                    <div class="oferta-contenido">
+                        <h3><a href="https://es.wikipedia.org/wiki/Nanj%C3%ADng" target="_blank"
+                                class="destino-link">Nanjing - Capital Antigua</a></h3>
+                        <div class="ruta-info">
+                            <p><strong>Ruta:</strong> Chengdú (CTU) → Nanjing (NKG)</p>
+                            <p><strong>Fechas:</strong> 02 Aug - 09 Aug 2026</p>
+                        </div>
+                        <div class="precio-info">
+                            <div class="precio">
+                                <span class="moneda">USD</span>
+                                <span class="cantidad">$159</span>
+                            </div>
+                            <div class="precio">
+                                <span class="moneda">CNY</span>
+                                <span class="cantidad">¥1,088</span>
+                            </div>
+                        </div>
+                        <button class="btn-oferta" onclick="window.location.href='nanjing.html'">Ver Detalles</button>
+                    </div>
+                </div>
+
+                <div class="oferta-card">
+                    <div class="oferta-imagen">
+                        <img src="assets/images/guilin1.jpg" alt="Guilin">
+                        <span class="oferta-badge">Ida y Vuelta</span>
+                    </div>
+                    <div class="oferta-contenido">
+                        <h3><a href="https://es.wikipedia.org/wiki/Guil%C3%ADn" target="_blank"
+                                class="destino-link">Guilin - Montañas de Karst</a></h3>
+                        <div class="ruta-info">
+                            <p><strong>Ruta:</strong> Cantón (CAN) → Guilin (KWL)</p>
+                            <p><strong>Fechas:</strong> 05 Aug - 12 Aug 2026</p>
+                        </div>
+                        <div class="precio-info">
+                            <div class="precio">
+                                <span class="moneda">USD</span>
+                                <span class="cantidad">$149</span>
+                            </div>
+                            <div class="precio">
+                                <span class="moneda">CNY</span>
+                                <span class="cantidad">¥1,020</span>
+                            </div>
+                        </div>
+                        <button class="btn-oferta" onclick="window.location.href='guilin.html'">Ver Detalles</button>
+                    </div>
+                </div>
+
+                <div class="oferta-card">
+                    <div class="oferta-imagen">
+                        <img src="assets/images/qingdao.jpg" alt="Qingdao">
+                        <span class="oferta-badge">Ida y Vuelta</span>
+                    </div>
+                    <div class="oferta-contenido">
+                        <h3><a href="https://es.wikipedia.org/wiki/Qingdao" target="_blank" class="destino-link">Qingdao
+                                - Perla Costera</a></h3>
+                        <div class="ruta-info">
+                            <p><strong>Ruta:</strong> Tianjin (TSN) → Qingdao (TAO)</p>
+                            <p><strong>Fechas:</strong> 08 Aug - 15 Aug 2026</p>
+                        </div>
+                        <div class="precio-info">
+                            <div class="precio">
+                                <span class="moneda">USD</span>
+                                <span class="cantidad">$139</span>
+                            </div>
+                            <div class="precio">
+                                <span class="moneda">CNY</span>
+                                <span class="cantidad">¥950</span>
+                            </div>
+                        </div>
+                        <button class="btn-oferta" onclick="window.location.href='qingdao.html'">Ver Detalles</button>
+                    </div>
+                </div>
+
+                <div class="oferta-card">
+                    <div class="oferta-imagen">
+                        <img src="assets/images/shanghai1.jpg" alt="Shanghái">
+                        <span class="oferta-badge">Ida y Vuelta</span>
+                    </div>
+                    <div class="oferta-contenido">
+                        <h3><a href="https://es.wikipedia.org/wiki/Shangh%C3%A1i" target="_blank"
+                                class="destino-link">Shanghái - La Perla del Oriente</a></h3>
+                        <div class="ruta-info">
+                            <p><strong>Ruta:</strong> Chengdú (CTU) → Shanghái (PVG)</p>
+                            <p><strong>Fechas:</strong> 08 Jul - 15 Jul 2026</p>
+                        </div>
+                        <div class="precio-info">
+                            <div class="precio">
+                                <span class="moneda">USD</span>
+                                <span class="cantidad">$149</span>
+                            </div>
+                            <div class="precio">
+                                <span class="moneda">CNY</span>
+                                <span class="cantidad">¥1,020</span>
+                            </div>
+                        </div>
+                        <button class="btn-oferta" onclick="window.location.href='shanghai.html'">Ver Detalles</button>
+                    </div>
+                </div>
+
+
+
+                <div class="oferta-card">
+                    <div class="oferta-imagen">
+                        <img src="assets/images/zhangjiajie1.jpg" alt="Zhangjiajie">
+                        <span class="oferta-badge">Ida y Vuelta</span>
+                    </div>
+                    <div class="oferta-contenido">
+                        <h3><a href="https://es.wikipedia.org/wiki/Zhangjiajie" target="_blank"
+                                class="destino-link">Zhangjiajie - Paisaje Místico Oriental</a></h3>
+                        <div class="ruta-info">
+                            <p><strong>Ruta:</strong> Wuhan (WUH) → Zhangjiajie (DYG)</p>
+                            <p><strong>Fechas:</strong> 12 Aug - 19 Aug 2026</p>
+                        </div>
+                        <div class="precio-info">
+                            <div class="precio">
+                                <span class="moneda">USD</span>
+                                <span class="cantidad">$169</span>
+                            </div>
+                            <div class="precio">
+                                <span class="moneda">CNY</span>
+                                <span class="cantidad">¥1,156</span>
+                            </div>
+                        </div>
+                        <button class="btn-oferta" onclick="window.location.href='zhangjiajie.html'">Ver Detalles</button>
+                    </div>
+                </div>
+
+                <div class="oferta-card">
+                    <div class="oferta-imagen">
+                        <img src="assets/images/chongqing1.jpg" alt="Chongqing">
+                        <span class="oferta-badge">Ida y Vuelta</span>
+                    </div>
+                    <div class="oferta-contenido">
+                        <h3><a href="https://es.wikipedia.org/wiki/Chongqing" target="_blank"
+                                class="destino-link">Chongqing - La Montaña Ciudad</a></h3>
+                        <div class="ruta-info">
+                            <p><strong>Ruta:</strong> Shanghái (PVG) → Chongqing (CKG)</p>
+                            <p><strong>Fechas:</strong> 15 Aug - 22 Aug 2026</p>
+                        </div>
+                        <div class="precio-info">
+                            <div class="precio">
+                                <span class="moneda">USD</span>
+                                <span class="cantidad">$179</span>
+                            </div>
+                            <div class="precio">
+                                <span class="moneda">CNY</span>
+                                <span class="cantidad">¥1,223</span>
+                            </div>
+                        </div>
+                        <button class="btn-oferta" onclick="window.location.href='chongqing.html'">Ver Detalles</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN NOSOTROS -->
+    <section id="nosotros" class="nosotros">
+        <div class="container">
+            <h2>Sobre Lucky Air</h2>
+            <div class="nosotros-content">
+                <div class="nosotros-text">
+                    <p>Lucky Air es una aerolínea de bajo costo fundada en 2004, orientada a ofrecer servicios de
+                        transporte aéreo eficientes, accesibles y centrados en el cliente. Su modelo de negocio se basa
+                        en la optimización de costos operativos y en el uso intensivo de tecnología para brindar una
+                        experiencia de viaje simple, rápida y confiable.</p>
+                    <p>Desde sus inicios, la empresa ha enfocado sus operaciones en rutas estratégicas, especialmente en
+                        destinos turísticos de alta demanda, lo que le ha permitido crecer de manera sostenida y
+                        posicionarse como una alternativa competitiva dentro del mercado aeronáutico.</p>
+                    <p>Uno de los pilares fundamentales de Lucky Air es su apuesta por el comercio electrónico,
+                        promoviendo un sistema de autoservicio donde los clientes pueden buscar, reservar y gestionar
+                        sus vuelos de manera completamente digital. Este enfoque no solo reduce costos operativos, sino
+                        que también mejora la experiencia del usuario al ofrecer mayor autonomía y rapidez en los
+                        procesos.</p>
+                    <ul class="caracteristicas">
+                        <li>✓ Eficiencia operativa</li>
+                        <li>✓ Accesibilidad</li>
+                        <li>✓ Innovación digital</li>
+                        <li>✓ Orientación al cliente</li>
+                    </ul>
+                </div>
+                <div class="nosotros-image">
+                    <img src="assets/images/team.jpg"
+                        alt="Equipo de Lucky Air - aerolínea china dedicada al servicio al cliente y viajes seguros">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SECCIÓN SERVICIOS -->
+    <section id="servicios" class="servicios">
+        <div class="container">
+            <h2>Nuestros Servicios</h2>
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <div class="servicio-icon">✈️</div>
+                    <h3>Reserva de Vuelos Online</h3>
+                    <p>Compra rápida y segura desde cualquier lugar con nuestro sistema de reservas.</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="servicio-icon">💰</div>
+                    <h3>Precios Accesibles</h3>
+                    <p>Tarifas económicas sin costos ocultos. Lo que ves es lo que pagas.</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="servicio-icon">🖥️</div>
+                    <h3>Autoservicio Digital</h3>
+                    <p>Gestiona tus vuelos sin intermediarios. Control total en tus manos.</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="servicio-icon">📡</div>
+                    <h3>Información en Tiempo Real</h3>
+                    <p>Consulta horarios y disponibilidad actualizada en cada momento.</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="servicio-icon">🎁</div>
+                    <h3>Programa de Fidelización</h3>
+                    <p>Acumula puntos en cada vuelo y obtén beneficios exclusivos.</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="servicio-icon">⚡</div>
+                    <h3>Atención Eficiente</h3>
+                    <p>Plataforma optimizada para una experiencia rápida y fluida.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SECCIÓN COMUNIDAD TEASER -->
+    <section id="comunidad-teaser" class="comunidad-teaser">
+        <div class="container text-center">
+            <h2>Nuestra Comunidad Lucky</h2>
+            <p>Únete a miles de viajeros que comparten sus experiencias volando con nosotros.</p>
+            <div class="teaser-grid">
+                <div class="teaser-item">
+                    <h3>Noticias</h3>
+                    <p>Mantente al día con las últimas novedades de Lucky Air.</p>
+                    <a href="comunidad.html#noticias" class="btn-teaser">Ver Más</a>
+                </div>
+                <div class="teaser-item">
+                    <h3>Blog de Viajes</h3>
+                    <p>Descubre destinos increíbles y consejos para tu próximo viaje.</p>
+                    <a href="comunidad.html#blog" class="btn-teaser">Leer Blog</a>
+                </div>
+                <div class="teaser-item">
+                    <h3>Club Lucky</h3>
+                    <p>Beneficios exclusivos para nuestros clientes más fieles.</p>
+                    <a href="comunidad.html#clientes" class="btn-teaser">Explorar Club</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN CONTACTO -->
+    <section id="contacto" class="contacto">
+        <div class="container">
+            <h2>Contacto</h2>
+            <div class="contacto-content">
+                <form class="contacto-form">
+                    <input type="text" placeholder="Tu Nombre" required>
+                    <input type="email" placeholder="Tu Email" required>
+                    <input type="text" placeholder="Empresa">
+                    <textarea placeholder="Tu Mensaje" rows="5" required></textarea>
+                    <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                </form>
+                <div class="contacto-info">
+                    <h3>Información de Contacto</h3>
+                    <p><strong>Email:</strong> info@lukyair.com</p>
+                    <p><strong>Teléfono:</strong> (+51) 123-4567</p>
+                    <p><strong>Dirección:</strong> Calle Tecnológica 123, Miraflores</p>
+                    <div class="redes-sociales">
+                        <h4>Síguenos:</h4>
+                        <div class="social-icons">
+                            <a href="https://wa.me/51123456789" target="_blank" title="WhatsApp" class="social-icon">
+                                <span>📱 WhatsApp</span>
+                            </a>
+                            <a href="https://facebook.com/luckyair" target="_blank" title="Facebook"
+                                class="social-icon">
+                                <span>f Facebook</span>
+                            </a>
+                            <a href="https://linkedin.com/company/luckyair" target="_blank" title="LinkedIn"
+                                class="social-icon">
+                                <span>in LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Lucky Air - Viaja seguro. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/carousel.js"></script>
+</body>
+
+</html>
