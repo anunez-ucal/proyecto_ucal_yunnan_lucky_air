@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión | Lucky Airlines</title>
+
+  <meta name="description" content="Acceso de usuario para gestionar opciones de pago y beneficios.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="./login.html">
+
+  <meta property="og:title" content="Iniciar sesión | Lucky Airlines">
+  <meta property="og:description" content="Accede para gestionar opciones de pago y beneficios.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:image" content="./avion.jpg">
+
+  <link rel="stylesheet" href="/css/styles2.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-wrap">
+      <div class="brand">
+        <img class="brand-logo" src="./assets/images/avion.jpg" alt="Ilustración de avión para Lucky Airlines.">
+        <div>
+          <h1>Iniciar sesión</h1>
+          <p class="subtitle">Accede para continuar con tu compra.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Acceso</h2>
+      <form action="./pasarela_pagos.html#medios" method="get" aria-label="Formulario de inicio de sesión">
+        <div class="grid-2">
+          <div class="field">
+            <label for="loginEmail">Email</label>
+            <input id="loginEmail" name="email" type="email" autocomplete="email" placeholder="tucorreo@ejemplo.com" required>
+          </div>
+
+          <div class="field">
+            <label for="loginPass">Contraseña</label>
+            <input id="loginPass" name="password" type="password" autocomplete="current-password" minlength="6" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label-inline" for="recordarme">
+            <input id="recordarme" name="recordarme" type="checkbox">
+            Mantener sesión iniciada en este dispositivo
+          </label>
+        </div>
+
+        <input type="submit" value="Continuar">
+        <p class="muted" style="margin-top:10px;">¿No tienes cuenta? Escríbenos a <a href="mailto:soporte@luckyairlines.com">soporte@luckyairlines.com</a></p>
+        <p style="margin:10px 0 0;"><a class="link-secundario" href="./pasarela_pagos.html">Volver a la pasarela</a></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer" aria-label="Pie de página">
+    <p>© 2026 Lucky Airlines</p>
+  </footer>
+</body>
+
+</html>

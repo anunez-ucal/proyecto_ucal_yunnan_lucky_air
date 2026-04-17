@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprar boleto</title>
+
+    <style>
+        /* CENTRAR TODO */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f2f5; /* fondo gris claro */
+            font-family: Arial;
+        }
+
+        /* CUADRO BLANCO */
+        .contenedor {
+            background-color: white;
+            width: 350px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        /* INPUTS */
+        input, select {
+            width: 90%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* BOTÓN */
+        .btn-compra {
+            background-color: gray;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-compra:hover {
+            background-color: blue;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <section id="compra">
+        <div class="contenedor">
+            <h2>🧾 Compra de Boleto</h2>
+
+            <form>
+                <label>Nombre completo:</label><br>
+                <input type="text" name="Nombre" required><br><br>
+
+                <label>DNI:</label><br>
+                <input type="text" name="DNI" required><br><br>
+
+                <label>Correo:</label><br>
+                <input type="email" name="email" required><br><br>
+
+                <label>Método de pago:</label><br>
+                <select required>
+                    <option>Tarjeta</option>
+                    <option>PayPal</option>
+                    <option>Yape</option>
+                    <option>Pago efectivo</option>
+                </select><br><br>
+                <a href="/pasarela_pagos.html">Comprar</a>
+                <!--<button type="submit" class="btn-compra">Comprar</button>-->
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>
