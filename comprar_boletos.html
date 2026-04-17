@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comprar Boletos</title>
+</head>
+
+<body>
+
+<!-- NAV LOGIN -->
+<nav>
+    <a href="#">Iniciar sesión</a>
+</nav>
+
+<!-- BANNER -->
+<section>
+    <img src="assets/images/avion.jpg" width="100%">
+    <h1>COMPRAR BOLETOS</h1>
+</section>
+
+<!-- CONTENIDO -->
+<div>
+
+    <!-- IZQUIERDA -->
+    <div>
+
+        <!-- BUSCAR -->
+        <section>
+            <h2>Buscar vuelos</h2>
+
+            <form>
+                <input type="text" placeholder="Origen" required><br><br>
+                <input type="text" placeholder="Destino" required><br><br>
+
+                <label>Fecha de ida</label><br>
+                <input type="date" required><br><br>
+
+                <label>Fecha de retorno</label><br>
+                <input type="date"><br><br>
+
+                <input type="number" min="1" placeholder="Pasajeros" required><br><br>
+                <input type="email" placeholder="Correo" required><br><br>
+
+                <button>Buscar</button>
+            </form>
+        </section>
+
+        <!-- VUELOS -->
+        <section>
+            <h2>Vuelos Disponibles</h2>
+
+            <table border="1">
+                <tr>
+                    <th>Vuelo</th>
+                    <th>Ruta</th>
+                    <th>Salida</th>
+                    <th>Llegada</th>
+                    <th>Transcurso</th>
+                    <th>Precio</th>
+                    <th>Compra</th>
+                </tr>
+
+                <tr>
+                    <td>LA101</td>
+                    <td>Pekin (PEK) → Canton (CAN)</td>
+                    <td>08:00</td>
+                    <td>09:30</td>
+                    <td>1h 30m</td>
+                    <td>$120</td>
+                    <td><a href="compra.html"><button class="btn-compra">Comprar</button></a></td>
+                </tr>
+
+                <tr>
+                    <td>LA202</td>
+                    <td>Shanghái (PVG) → Pekín (PEK)</td>
+                    <td>10:00</td>
+                    <td>11:00</td>
+                    <td>1h</td>
+                    <td>$90</td>
+                    <td><a href=""><button class="btn-compra">Comprar</button></a></td>
+                </tr>
+
+                <tr>
+                    <td>LA303</td>
+                    <td>Tianjin (TSN) → Xi'an (XIY)</td>
+                    <td>15:00</td>
+                    <td>16:00</td>
+                    <td>1h</td>
+                    <td>$80</td>
+                    <td><a href=""><button class="btn-compra">Comprar</button></a></td>
+                </tr>
+
+            </table>
+        </section>
+
+    </div>
+
+    <!-- DERECHA -->
+    <div>
+
+        <!-- LOGIN -->
+        <section>
+            <h3>Iniciar sesión</h3>
+            <input type="email" placeholder="Correo"><br><br>
+            <input type="password" placeholder="Contraseña"><br><br>
+            <button>Ingresar</button>
+        </section>
+
+        <!-- REEMBOLSO -->
+        <section>
+            <h3>Reembolso</h3>
+            <a href="reembolso.html">Solicitar reembolso</a>
+        </section>
+
+        <!-- PUNTOS -->
+        <section>
+            <h3>Puntos</h3>
+            <p><strong>1200 puntos</strong></p>
+            <ul>
+                <li>Descuento = 500 pts</li>
+                <li>Vuelo corto = 1000 pts</li>
+                <li>Por cada $10 tienes 1 punto</li>
+            </ul>
+            <button>Canjear</button>
+        </section>
+
+    </div>
+
+</div>
+
+</body>
+</html>

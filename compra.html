@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprar boleto</title>
+</head>
+
+<body>
+
+    <section id="compra">
+        <div class="contenedor">
+            <h2>🧾 Compra de Boleto</h2>
+
+            <form>
+                <label>Nombre completo:</label><br>
+                <input type="text" name="Nombre" required><br><br>
+
+                <label>DNI:</label><br>
+                <input type="text" name="DNI" required><br><br>
+
+                <label>Correo:</label><br>
+                <input type="email" name="email" required><br><br>
+
+                <label>Método de pago:</label><br>
+                <select required>
+                    <option>Tarjeta</option>
+                    <option>PayPal</option>
+                    <option>Yape</option>
+                    <option>Pago efectivo</option>
+                </select><br><br>
+                <a href="/pasarela_pagos.html">Comprar</a>
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>

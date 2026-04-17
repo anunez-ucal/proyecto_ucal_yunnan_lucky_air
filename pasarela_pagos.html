@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pasarela de Pago | Lucky Airlines</title>
+
+  <meta name="description" content="Pantalla de pasarela de pagos para compras en línea de Lucky Airlines. Confirma el resumen y completa el pago con tarjeta.">
+  <meta name="author" content="Heimer">
+  <meta name="robots" content="index,follow">
+  <meta name="keywords" content="pasarela de pago, compra en línea, vuelos, Lucky Airlines, tarjeta, seguridad, Perú, USD">
+  <link rel="canonical" href="./index.html">
+
+  <meta property="og:title" content="Pasarela de Pago | Lucky Airlines">
+  <meta property="og:description" content="Confirma y paga tu compra en la pasarela (pantalla estática).">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:image" content="./avion.jpg">
+
+  <link rel="stylesheet" href="/css/styles2.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-wrap">
+      <div class="brand">
+        <img class="brand-logo" src="./assets/images/avion.jpg" alt="Ilustración de avión para Lucky Airlines.">
+        <div>
+          <h1>Confirma y paga tu compra</h1>
+          <p class="subtitle">Completa tu compra de forma segura.</p>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="resumen" id="resumen" aria-label="Resumen del pago">
+      <div class="card card--tight">
+        <div class="resumen-top">
+          <div>
+            <h2>Total a pagar</h2>
+            <p class="muted">1 adulto · Ruta: Yunnan ↔ Dali · Moneda: USD</p>
+          </div>
+          <p class="total" aria-label="Total a pagar">USD 206.03</p>
+        </div>
+
+        <table class="table" aria-label="Tabla de conceptos del pago">
+          <tr>
+            <th scope="col">Concepto</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Total</th>
+            <th scope="col">Moneda</th>
+          </tr>
+          <tr>
+            <td>Boleto aéreo</td>
+            <td>1</td>
+            <td>206.03</td>
+            <td>USD</td>
+          </tr>
+          <tr>
+            <td>Seguro de viaje</td>
+            <td>1</td>
+            <td>0</td>
+            <td>USD</td>
+          </tr>
+          <tr>
+            <td>Impuestos</td>
+            <td>1</td>
+            <td>0</td>
+            <td>USD</td>
+          </tr>
+        </table>
+
+      </div>
+    </section>
+
+    <section class="medios" id="medios" aria-label="Medios de pago">
+      <h2>Medios de pago</h2>
+
+      <div class="banner-pago" role="region" aria-label="Opciones de pago digitales">
+        <div class="banner-ilustracion">
+          <img src="./assets/images/pagos.png" alt="Opciones de pago disponibles." class="banner-ilustracion-img">
+        </div>
+        <div class="banner-texto">
+          <p class="banner-titulo"> Cuotéalo, QR o con tu Lucky Wallet
+        </p>
+          <p class="banner-subtitulo">Obtén más opciones de pago y beneficios al iniciar sesión.</p>
+          <a class="link-secundario" href="./login.html">Iniciar sesión</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="opciones" role="group" aria-label="Selecciona un medio de pago (solo UI)">
+          <label class="opcion-pago" for="metodoTarjeta">
+            <span class="opcion-info">
+              <strong>Agregar tarjeta</strong>
+              <span>Débito con CVV o crédito Visa, Mastercard o American Express.</span>
+            </span>
+            <input id="metodoTarjeta" name="metodoPago" type="radio" checked>
+          </label>
+        </div>
+
+        <div id="formTarjeta" class="formulario" aria-label="Formulario de pago con tarjeta" hidden>
+          <h3>Agregar tarjeta</h3>
+
+          <div class="avisos" role="note" aria-label="Avisos de pago">
+            <p><strong>Para compras online</strong>, necesitas tener activa tu tarjeta.</p>
+            <ul>
+              <li>El tipo de cambio y cobro de intereses por cuotas dependen del banco emisor.</li>
+              <li>El cobro se realiza en USD y desde Perú; aplican las leyes vigentes.</li>
+              <li>Pagos internacionales con tarjeta de crédito pueden tener comisión del banco emisor.</li>
+            </ul>
+          </div>
+
+          <form id="pagoTarjetaForm" action="#" method="get" aria-label="Formulario de pago con tarjeta">
+            <div class="grid-2">
+              <div class="field">
+                <label for="numeroTarjeta">Número de tarjeta</label>
+                <input id="numeroTarjeta" name="numeroTarjeta" type="text" inputmode="numeric" autocomplete="cc-number"
+                  placeholder="1234 5678 9012 3456" pattern="[0-9 ]{12,23}" required>
+              </div>
+
+              <div class="field">
+                <label for="nombreTitular">Nombre y apellido</label>
+                <input id="nombreTitular" name="nombreTitular" type="text" autocomplete="cc-name"
+                  placeholder="Como aparece en la tarjeta" minlength="3" required>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="field">
+                <label for="expiracion">Expiración</label>
+                <input id="expiracion" name="expiracion" type="month" autocomplete="cc-exp" required>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="confirmacion" id="detalle" aria-label="Confirmación y pago">
+      <div class="card">
+        <h2>¿A dónde enviamos el comprobante de compra?</h2>
+        <p class="muted">La persona que reciba el comprobante será administradora del viaje y la única que podrá solicitar cambios y devoluciones.</p>
+        <div class="field" style="margin-top:12px;">
+          <label for="emailComprobante">Email</label>
+          <input id="emailComprobante" name="emailComprobante" type="email" autocomplete="email" placeholder="tucorreo@ejemplo.com" required form="pagoTarjetaForm">
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px;">
+        <h2>¿Necesitas factura?</h2>
+        <div class="switch-row" role="group" aria-label="Solicitar factura">
+          <div class="switch-left">
+            <p class="switch-title">Solicitar Factura</p>
+          </div>
+          <label class="switch" for="solicitarFactura">
+            <input id="solicitarFactura" name="solicitarFactura" type="checkbox" form="pagoTarjetaForm">
+            <span class="slider" aria-hidden="true"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="terms-pay">
+        <label class="label-inline" for="terminos">
+          <input id="terminos" name="terminos" type="checkbox" required form="pagoTarjetaForm">
+          Al continuar acepto los términos y condiciones de la compra.
+        </label>
+
+        <button class="btn-pagar" type="button" onclick="window.location.href='boleto.html'">
+  Pagar
+</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" aria-label="Pie de página">
+    <p>© 2026 Lucky Airlines</p>
+    <p><a href="#resumen">Volver arriba</a></p>
+  </footer>
+
+  <script src="/scripts/tarjeta.js"></script>
+</body>
+
+</html>
