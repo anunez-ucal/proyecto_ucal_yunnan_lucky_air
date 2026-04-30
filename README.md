@@ -7,7 +7,7 @@ Este proyecto es una página web completa y optimizada para motores de búsqueda
 Lucky Air es una landing page moderna de aerolínea digital enfocada en viajes a China. El sitio ofrece:
 
 - **Buscador avanzado de vuelos** con selección de tipo de viaje, aeropuertos de origen/destino, fechas y cantidad de pasajeros
-- **13 ofertas especiales** de viajes a destinos chinos con precios en USD y CNY
+- **12 ofertas especiales** de viajes a destinos chinos con precios en USD y CNY
 - **Servicios completos** de aerolínea digital con autoservicio
 - **Información corporativa** sobre Lucky Air y su modelo de negocio
 - **Formulario de contacto** y enlaces a redes sociales
@@ -60,14 +60,27 @@ Este README documenta el progreso completo del proyecto:
 
 ```
 proyecto_ucal_c1/
-├── index.html              # Página principal con todo el contenido
-├── README.md               # Esta documentación
+├── index.html
+├── README.md
+
+├── pages/
+│   ├── comprar_boletos.html
+│   ├── destino.html
+│   ├── login.html
+│   ├── comunidad.html
+│   ├── contacto.html
+
 ├── css/
-│   └── styles.css          # Estilos CSS responsive
+│   └── styles.css
+
 ├── scripts/
-│   └── carousel.js         # JavaScript del carrusel
+│   ├── carousel.js
+│   ├── destinos.js
+│   ├── vuelos.js
+│   ├── idiomas.js
+
 └── assets/
-    └── images/             # Carpeta para imágenes del sitio
+    └── images/
 ```
 
 ## Tecnologías utilizadas

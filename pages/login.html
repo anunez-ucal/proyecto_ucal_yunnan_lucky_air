@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión | Lucky Airlines</title>
+
+  <meta name="description" content="Acceso de usuario para gestionar opciones de pago y beneficios.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="./login.html">
+
+  <meta property="og:title" content="Iniciar sesión | Lucky Airlines">
+  <meta property="og:description" content="Accede para gestionar opciones de pago y beneficios.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:image" content="./avion.jpg">
+
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">Lucky Air 幸航</a>
+      <ul class="nav-menu">
+        <li><a href="../index.html" class="nav-link">Inicio</a></li>
+        <li class="dropdown">
+          <a href="#" class="nav-link">Descubre</a>
+          <ul class="dropdown-content">
+            <li><a href="../pages/comprar_boletos.html">Destinos</a></li>
+            <li><a href="../pages/comprar_boletos.html#ofertas">Ofertas</a></li>
+          </ul>
+        <li class="dropdown">
+          <a href="#" class="nav-link">Comunidad</a>
+          <ul class="dropdown-content">
+            <li><a href="../pages/comunidad.html#noticias">Noticias</a></li>
+            <li><a href="../pages/comunidad.html#blog">Blogs</a></li>
+          </ul>
+        </li>
+        <li><a href="../index.html#nosotros" class="nav-link">Nosotros</a></li>
+        <li><a href="../pages/contacto.html" class="nav-link">Contacto</a></li>
+        <li><a href="../pages/login.html" class="nav-link">Iniciar sesión</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- LOGIN -->
+  <div class="login-wrapper">
+
+    <section class="search-box login-card">
+      <h2>Ingresa tu usuario</h2>
+      <h3>Ingresa tus datos:</h3>
+
+      <form action="./pasarela_pagos.html#medios" method="get" aria-label="Formulario de inicio de sesión">
+
+        <div class="grid-2">
+
+          <div class="field">
+            <label for="loginEmail">Email</label>
+            <input id="loginEmail" name="email" type="email" autocomplete="email" placeholder="tucorreo@ejemplo.com"
+              required>
+          </div>
+
+          <div class="field">
+            <label for="loginPass">Contraseña</label>
+            <input id="loginPass" name="password" type="password" autocomplete="current-password" minlength="6"
+              required>
+          </div>
+
+        </div>
+
+        <div class="field">
+          <label class="label-inline" for="recordarme">
+            <input id="recordarme" name="recordarme" type="checkbox">
+            Mantener sesión iniciada
+          </label>
+        </div>
+
+        <input type="submit" value="Continuar" class="btn-login">
+
+        <p class="muted">¿No tienes cuenta?
+          <a href="mailto:soporte@luckyairlines.com">Contáctanos</a>
+        </p>
+
+        <p>
+          <a class="link-secundario" href="../pages/pasarela_pagos.html">
+            ← Volver a la pasarela
+          </a>
+        </p>
+
+      </form>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Lucky Air - Viaja seguro. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

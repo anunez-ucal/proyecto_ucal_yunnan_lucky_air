@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destino - Lucky Air</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">Lucky Air 幸航</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#" class="nav-link">Descubre</a>
+                    <ul class="dropdown-content">
+                        <li><a href="../pages/comprar_boletos.html">Destinos</a></li>
+                        <li><a href="../pages/comprar_boletos.html#ofertas">Ofertas</a></li>
+                    </ul>
+                <li class="dropdown">
+                    <a href="#" class="nav-link">Comunidad</a>
+                    <ul class="dropdown-content">
+                        <li><a href="../pages/comunidad.html#noticias">Noticias</a></li>
+                        <li><a href="../pages/comunidad.html#blog">Blogs</a></li>
+                    </ul>
+                </li>
+                <li><a href="../index.html#nosotros" class="nav-link">Nosotros</a></li>
+                <li><a href="../pages/contacto.html" class="nav-link">Contacto</a></li>
+                <li><a href="../pages/login.html" class="nav-link">Iniciar sesión</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <section class="detalle-destino">
+        <div class="container">
+            <div class="detalle-card">
+
+                <div class="detalle-imagen">
+                    <img id="imgDestino">
+                </div>
+
+                <div class="detalle-contenido">
+
+                    <h1 id="titulo"></h1>
+
+                    <div class="detalle-info" id="info"></div>
+
+                    <div class="detalle-precio">
+                        <p>Desde</p>
+                        <h2 id="precio"></h2>
+                        <span id="precio2"></span>
+                    </div>
+
+                    <div class="detalle-seccion">
+                        <h3>Descripción</h3>
+                        <p id="descripcion"></p>
+                    </div>
+
+                    <div class="detalle-seccion">
+                        <h3>Lugares recomendados</h3>
+                        <ul id="lugares"></ul>
+                    </div>
+
+                    <div class="detalle-seccion">
+                        <h3>Incluye</h3>
+                        <ul id="incluye"></ul>
+                    </div>
+
+                    <div class="detalle-acciones">
+                        <a href="../pages/login.html" class="btn-primary">Comprar ahora</a>
+                        <a href="../pages/comprar_boletos.html#ofertas" class="btn-secondary">← Volver</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Lucky Air - Viaja seguro. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/destinos.js"></script>
+
+</body>
+
+</html>
