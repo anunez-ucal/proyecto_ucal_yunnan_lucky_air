@@ -272,11 +272,18 @@ window.addEventListener("DOMContentLoaded", () => {
     marcarActivo(idioma);
 });
 
-function marcarActivo(lang){
-  document.querySelectorAll(".lang-switch button").forEach(btn=>{
-    btn.classList.remove("active");
-  });
+function marcarActivo(lang) {
+    // Actualizar el texto del selector principal
+    const currentLangEl = document.getElementById("current-lang");
+    if (currentLangEl) {
+        currentLangEl.textContent = lang.toUpperCase();
+    }
 
-  document.querySelector(`.lang-switch button[onclick="cambiarIdioma('${lang}')"]`)
-    ?.classList.add("active");
+    // Marcar como activo en el dropdown
+    document.querySelectorAll(".lang-dropdown .dropdown-content a").forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("onclick")?.includes(`'${lang}'`)) {
+            link.classList.add("active");
+        }
+    });
 }
