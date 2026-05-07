@@ -77,6 +77,7 @@ h2::after {
     justify-content: space-between;
     align-items: center;
     height: 70px;
+    position: relative;
 }
 
 .logo {
@@ -103,21 +104,6 @@ h2::after {
 
 .nav-link:hover {
     color: var(--primary-color);
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary-color);
-    transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-    width: 100%;
 }
 
 /* Dropdown Menu */
@@ -1804,6 +1790,133 @@ h2::after {
     flex: 1;
 }
 
+/* NAV ACTIONS */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-menu-drawer {
+    display: none !important;
+    z-index: 1001;
+}
+
+/* Color de la librería Hamburgers */
+.hamburger-inner, 
+.hamburger-inner::before, 
+.hamburger-inner::after {
+    background-color: var(--primary-color) !important;
+}
+
+.hamburger.is-active .hamburger-inner, 
+.hamburger.is-active .hamburger-inner::before, 
+.hamburger.is-active .hamburger-inner::after {
+    background-color: var(--primary-color) !important;
+}
+
+@media (max-width: 875px) {
+    .btn-menu-drawer {
+        display: flex !important;
+        padding: 10px;
+    }
+}
+
+
+
+/* RESPONSIVE NAV DRAWER - ACCORDION STYLE */
+@media (max-width: 875px) {
+    /* RESPONSIVE NAV DRAWER - SIMPLE HORIZONTAL SLIDE */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background-color: #ffffff;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: 0;
+        transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        z-index: 1000;
+        padding-top: 80px;
+        overflow-y: auto;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-link {
+        width: 100%;
+        font-size: 1.1rem;
+        display: block;
+        padding: 20px 25px;
+        color: var(--dark-color);
+        transition: background-color 0.2s ease;
+    }
+
+    .nav-link:active {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+    
+    /* Submenu Accordion - Aparece debajo empujando contenido */
+    /* Submenu Accordion - Orientación Vertical */
+    .nav-menu .dropdown-content {
+        position: static;
+        display: none;
+        flex-direction: column; /* Orientación vertical solicitada */
+        width: 100%;
+        background-color: var(--light-color);
+        padding: 0;
+        box-shadow: none;
+        visibility: visible;
+        transform: none;
+    }
+
+    .item-container > a{
+        justify-content: start;
+        align-self: start;
+    }
+
+    .item-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .item-container .submenu-content{
+        border-radius: 0px;
+    }
+
+    .nav-menu .dropdown.submenu-open .dropdown-content {
+        display: flex; /* Cambiado a flex para soportar la columna */
+        transition: 0.3s ease;
+    }
+
+    .nav-menu .dropdown-content li {
+        width: 100%;
+    }
+
+    .nav-menu .dropdown-content li a {
+        padding: 15px 25px;
+        font-size: 1rem;
+        color: var(--dark-color);
+        display: block;
+        text-decoration: none;
+        transition: background-color 0.2s ease;
+    }
+
+    /* Hover estable en subitems */
+    .nav-menu .dropdown-content li a:hover {
+        background-color: rgb(190, 180, 207);
+    }
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .detalle-card {
@@ -1821,28 +1934,85 @@ h2::after {
 
 
 
-/* CONTENEDOR IDIOMA */
-.lang-switch {
+/* CONTENEDOR IDIOMA - DROPDOWN MEJORADO */
+.lang-dropdown {
+    margin-left: 1rem;
+}
+
+#language-selector {
     display: flex;
+    align-items: center;
     gap: 8px;
-    margin-left: 15px;
-}
-
-.lang-switch button {
-    padding: 6px 10px;
-    border: none;
-    border-radius: 6px;
-    background: #eee;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background-color: var(--light-color);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
     cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
+    font-family: inherit;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
 }
 
-.lang-switch button:hover {
-    background: #ccc;
+#language-selector:hover {
+    background-color: var(--white);
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.lang-switch button.active {
-    background: #15008c; /* rojo Lucky Air */
-    color: white;
+#current-lang {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+}
+
+.icon-globe {
+    font-style: normal;
+    font-size: 1.1rem;
+}
+
+.lang-dropdown .dropdown-content {
+    min-width: 150px;
+    right: 0;
+    left: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.lang-dropdown .dropdown-content a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+}
+
+.lang-dropdown .dropdown-content a.active {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* Ajuste para que el dropdown no se corte en móviles */
+@media (max-width: 768px) {
+    .lang-dropdown {
+        margin-left: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .lang-dropdown .dropdown-content {
+        box-shadow: none;
+        border: none;
+        background-color: var(--light-color);
+        width: 100%;
+        display: none;
+    }
+
+    .lang-dropdown:hover .dropdown-content {
+        display: block;
+    }
 }

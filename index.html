@@ -54,6 +54,7 @@
     </script>
 
     <link rel="stylesheet" href="css/styles.css">
+    <link href="css/hamburguer.css" rel="stylesheet">
 </head>
 
 <body>
@@ -63,16 +64,16 @@
             <a href="index.html" class="logo">Lucky Air 幸航</a>
             <ul class="nav-menu">
                 <li><a href="#inicio" class="nav-link" data-i18n="inicio">Inicio</a></li>
-                <li class="dropdown">
+                <li class="dropdown item-container">
                     <a href="#" class="nav-link" data-i18n="descubre">Descubre</a>
-                    <ul class="dropdown-content">
+                    <ul class="dropdown-content submenu-content">
                         <li><a href="pages/comprar_boletos.html" data-i18n="destinos">Destinos</a></li>
                         <li><a href="pages/comprar_boletos.html#ofertas" data-i18n="ofertas">Ofertas</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown item-container">
                     <a href="#" class="nav-link" data-i18n="comunidad">Comunidad</a>
-                    <ul class="dropdown-content">
+                    <ul class="dropdown-content submenu-content">
                         <li><a href="pages/comunidad.html#noticias" data-i18n="noticias">Noticias</a></li>
                         <li><a href="pages/comunidad.html#blog" data-i18n="blog">Blogs</a></li>
                     </ul>
@@ -81,12 +82,27 @@
                 <li><a href="pages/contacto.html" class="nav-link" data-i18n="contacto">Contacto</a></li>
                 <li><a href="pages/login.html" class="nav-link" data-i18n="login">Iniciar sesión</a></li>
 
-                <div class="lang-switch">
-                    <button onclick="cambiarIdioma('es')">ES</button>
-                    <button onclick="cambiarIdioma('en')">EN</button>
-                    <button onclick="cambiarIdioma('zh')">中文</button>
-                </div>
             </ul>
+
+            <div class="nav-actions">
+                <div class="dropdown lang-dropdown">
+                    <button class="" id="language-selector">
+                        <span id="current-lang">ES</span>
+                        <i class="icon-globe">🌐</i>
+                    </button>
+                    <ul class="dropdown-content">
+                        <li><a href="#" onclick="cambiarIdioma('es')">ES</a></li>
+                        <li><a href="#" onclick="cambiarIdioma('en')">EN</a></li>
+                        <li><a href="#" onclick="cambiarIdioma('zh')">中文</a></li>
+                    </ul>
+                </div>
+
+                <button class="hamburger btn-menu-drawer hamburger--collapse" type="button">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -398,7 +414,7 @@
     <script src="scripts/carousel.js"></script>
     <script src="scripts/destinos.js"></script>
     <script src="scripts/idiomas.js"></script>
-
+    <script src="scripts/drawer.js"></script>
 
 </body>
 
