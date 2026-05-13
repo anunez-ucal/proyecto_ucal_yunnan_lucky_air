@@ -1,0 +1,799 @@
+/* Pasarela: encapsulado en .pasarela-page; paleta alineada con styles.css */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body:has(.pasarela-page) > .footer {
+  margin-top: 0;
+}
+
+.pasarela-page {
+  --primary-color: #15008c;
+  --secondary-color: #3b82f6;
+  --accent-color: #f59e0b;
+  --dark-color: #1f2937;
+  --light-color: #f3f4f6;
+  --white: #ffffff;
+  --text-color: #374151;
+  --border-color: #e5e7eb;
+  --sky: var(--secondary-color);
+  --sky-deep: #100070;
+  --sky-light: #93c5fd;
+  --gold: var(--accent-color);
+  --gold-pale: #fef3c7;
+  --off-white: var(--light-color);
+  --gray-100: #eef2f7;
+  --gray-300: #d1d5db;
+  --gray-500: #6b7280;
+  --gray-700: #374151;
+  --dark: var(--dark-color);
+  --success: #10b981;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --shadow-card: 0 8px 40px rgba(21, 0, 140, 0.12);
+  --shadow-btn: 0 4px 18px rgba(59, 130, 246, 0.38);
+  font-family: 'Outfit', system-ui, sans-serif;
+  background: var(--off-white);
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-color);
+  line-height: 1.5;
+  width: 100%;
+}
+
+.pasarela-page *,
+.pasarela-page *::before,
+.pasarela-page *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── HERO STRIP ── */
+.pasarela-page .hero-strip {
+  background: linear-gradient(110deg, var(--primary-color) 0%, var(--secondary-color) 52%, #6366f1 100%);
+  padding: 1.5rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+}
+
+.pasarela-page .hero-strip::before {
+  content: '';
+  position: absolute;
+  right: -60px;
+  top: -80px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+
+.pasarela-page .hero-strip::after {
+  content: '';
+  position: absolute;
+  right: 60px;
+  bottom: -100px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+
+.pasarela-page .flight-info{ position: relative; z-index: 1; }
+
+.pasarela-page .flight-route {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 6px;
+}
+
+.pasarela-page .route-city {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: white;
+  line-height: 1;
+}
+
+.pasarela-page .route-code {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+}
+
+.pasarela-page .route-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  color: var(--gold);
+}
+
+.pasarela-page .route-arrow i{ font-size: 18px; }
+
+.pasarela-page .route-arrow span {
+  font-size: 10px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.08em;
+}
+
+.pasarela-page .flight-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.pasarela-page .flight-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+}
+
+.pasarela-page .flight-meta-item i{ font-size: 14px; color: var(--sky-light); }
+
+.pasarela-page .flight-price-box {
+  position: relative;
+  z-index: 1;
+  text-align: right;
+}
+
+.pasarela-page .price-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.pasarela-page .price-total {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  font-weight: 600;
+  color: white;
+  line-height: 1;
+}
+
+.pasarela-page .price-total sup{ font-size: 20px; vertical-align: super; color: var(--gold); }
+
+.pasarela-page .price-breakdown {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  margin-top: 4px;
+}
+
+/* ── MAIN LAYOUT ── */
+.pasarela-page .main-wrap {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 2rem;
+  padding: 2rem 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ── PAYMENT FORM CARD ── */
+.pasarela-page .pay-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.pasarela-page .pay-card-header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--gray-100);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pasarela-page .pay-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.pasarela-page .security-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--success);
+  background: rgba(16, 185, 129, 0.1);
+  padding: 5px 12px;
+  border-radius: 99px;
+}
+
+.pasarela-page .security-badge i{ font-size: 14px; }
+
+.pasarela-page .pay-card-body{ padding: 2rem; }
+
+/* Method tabs */
+.pasarela-page .method-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.pasarela-page .method-tab {
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius-md);
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--off-white);
+}
+
+.pasarela-page .method-tab:hover {
+  border-color: var(--sky-light);
+  background: rgba(59, 130, 246, 0.04);
+}
+
+.pasarela-page .method-tab.active {
+  border-color: var(--sky);
+  background: rgba(59, 130, 246, 0.08);
+}
+
+.pasarela-page .method-tab i {
+  font-size: 24px;
+  color: var(--gray-500);
+}
+
+.pasarela-page .method-tab.active i{ color: var(--sky); }
+
+.pasarela-page .method-tab-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray-500);
+}
+
+.pasarela-page .method-tab.active .method-tab-label{ color: var(--sky-deep); }
+
+/* Accepted cards */
+.pasarela-page .accepted-cards {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1.75rem;
+}
+
+.pasarela-page .accepted-label {
+  font-size: 12px;
+  color: var(--gray-500);
+  margin-right: 4px;
+}
+
+.pasarela-page .card-badge {
+  background: var(--gray-100);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gray-700);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pasarela-page .card-badge i{ font-size: 14px; }
+
+/* Form fields */
+.pasarela-page .form-section-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-500);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pasarela-page .form-section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gray-100);
+}
+
+.pasarela-page .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.pasarela-page .form-field {
+  margin-bottom: 14px;
+}
+
+.pasarela-page .form-field.full{ grid-column: 1 / -1; }
+
+.pasarela-page label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray-700);
+  margin-bottom: 7px;
+  letter-spacing: 0.02em;
+}
+
+.pasarela-page .input-wrap {
+  position: relative;
+}
+
+.pasarela-page .input-wrap i {
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: var(--gray-300);
+  pointer-events: none;
+  transition: color 0.2s;
+}
+
+.pasarela-page input[type="text"],
+.pasarela-page input[type="email"],
+.pasarela-page select {
+  width: 100%;
+  height: 46px;
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius-sm);
+  padding: 0 14px 0 42px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  color: var(--dark);
+  background: var(--off-white);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  appearance: none;
+}
+
+.pasarela-page input[type="text"]:focus,
+.pasarela-page input[type="email"]:focus,
+.pasarela-page select:focus {
+  border-color: var(--sky);
+  background: white;
+}
+
+.pasarela-page input[type="text"]:focus + i,
+.pasarela-page input[type="email"]:focus + i {
+  color: var(--sky);
+}
+
+.pasarela-page input::placeholder{ color: var(--gray-300); }
+
+.pasarela-page .input-wrap .toggle-cvc {
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: var(--gray-300);
+  cursor: pointer;
+  left: auto;
+}
+
+/* Select arrow */
+.pasarela-page .select-wrap{ position: relative; }
+.pasarela-page .select-wrap::after {
+  content: '';
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--gray-300);
+  pointer-events: none;
+}
+
+.pasarela-page .select-wrap select{ padding-left: 42px; cursor: pointer; }
+
+/* Terms */
+.pasarela-page .terms-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 1.5rem 0;
+}
+
+.pasarela-page .terms-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  border: 1.5px solid var(--gray-300);
+  border-radius: 4px;
+  cursor: pointer;
+  accent-color: var(--sky);
+  margin-top: 1px;
+}
+
+.pasarela-page .terms-text {
+  font-size: 13px;
+  color: var(--gray-500);
+  line-height: 1.5;
+}
+
+.pasarela-page .terms-text a{ color: var(--sky); text-decoration: none; }
+
+/* Pay button */
+.pasarela-page .pay-btn {
+  width: 100%;
+  height: 54px;
+  background: var(--sky);
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: var(--shadow-btn);
+  transition: all 0.2s ease;
+  letter-spacing: 0.02em;
+}
+
+.pasarela-page .pay-btn:hover {
+  background: var(--sky-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.45);
+}
+
+.pasarela-page .pay-btn:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.pasarela-page .pay-btn i{ font-size: 18px; }
+
+/* ── SIDEBAR ── */
+.pasarela-page .sidebar{ display: flex; flex-direction: column; gap: 1.25rem; }
+
+/* Summary card */
+.pasarela-page .summary-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.pasarela-page .summary-header {
+  background: var(--dark);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pasarela-page .summary-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+}
+
+.pasarela-page .flight-num-badge {
+  font-size: 12px;
+  color: var(--gold);
+  background: rgba(245, 158, 11, 0.15);
+  padding: 4px 10px;
+  border-radius: 99px;
+  font-weight: 500;
+}
+
+.pasarela-page .summary-body{ padding: 1.5rem; }
+
+.pasarela-page .summary-route {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px dashed var(--gray-100);
+}
+
+.pasarela-page .summary-city {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.pasarela-page .summary-city small {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--gray-500);
+  margin-top: 2px;
+}
+
+.pasarela-page .summary-plane{ color: var(--sky); font-size: 20px; }
+
+.pasarela-page .summary-details{ margin-bottom: 1.25rem; }
+
+.pasarela-page .summary-detail-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 0;
+}
+
+.pasarela-page .detail-key {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  color: var(--gray-500);
+}
+
+.pasarela-page .detail-key i{ font-size: 15px; color: var(--sky-light); }
+
+.pasarela-page .detail-val {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-700);
+}
+
+.pasarela-page .summary-passengers {
+  background: var(--gray-100);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin-bottom: 1.25rem;
+}
+
+.pasarela-page .passenger-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.pasarela-page .passenger-name {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  color: var(--gray-700);
+}
+
+.pasarela-page .passenger-name i{ font-size: 15px; color: var(--sky); }
+
+.pasarela-page .passenger-seat {
+  font-size: 12px;
+  color: var(--gray-500);
+  background: white;
+  padding: 2px 8px;
+  border-radius: 99px;
+  border: 1px solid var(--gray-300);
+}
+
+.pasarela-page .price-breakdown-card{ border-top: 1px solid var(--gray-100); padding-top: 1.25rem; }
+
+.pasarela-page .price-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  font-size: 13px;
+}
+
+.pasarela-page .price-row .key{ color: var(--gray-500); }
+.pasarela-page .price-row .val{ color: var(--gray-700); font-weight: 500; }
+
+.pasarela-page .price-row.total {
+  margin-top: 10px;
+  padding-top: 12px;
+  border-top: 2px solid var(--gray-100);
+}
+
+.pasarela-page .price-row.total .key {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.pasarela-page .price-row.total .val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--sky-deep);
+}
+
+/* Info card */
+.pasarela-page .info-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 1.25rem 1.5rem;
+}
+
+.pasarela-page .info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.pasarela-page .info-item:not(:last-child){ border-bottom: 1px solid var(--gray-100); }
+
+.pasarela-page .info-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pasarela-page .info-icon i{ font-size: 17px; }
+
+.pasarela-page .info-icon.blue{ background: rgba(59, 130, 246, 0.12); }
+.pasarela-page .info-icon.blue i{ color: var(--sky); }
+.pasarela-page .info-icon.gold{ background: rgba(245, 158, 11, 0.12); }
+.pasarela-page .info-icon.gold i{ color: var(--gold); }
+.pasarela-page .info-icon.green{ background: rgba(16, 185, 129, 0.12); }
+.pasarela-page .info-icon.green i{ color: var(--success); }
+
+.pasarela-page .info-text{ font-size: 12px; line-height: 1.5; color: var(--gray-700); }
+.pasarela-page .info-text strong{ display: block; font-size: 13px; font-weight: 600; color: var(--dark); margin-bottom: 2px; }
+
+/* ── SUCCESS OVERLAY ── */
+.pasarela-page .success-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(31, 41, 55, 0.82);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.pasarela-page .success-overlay.show{ display: flex; }
+
+.pasarela-page .success-modal {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 3rem 2.5rem;
+  max-width: 440px;
+  width: 90%;
+  text-align: center;
+  animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popIn {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.pasarela-page .success-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.pasarela-page .success-icon i{ font-size: 32px; color: var(--success); }
+
+.pasarela-page .success-modal h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--dark);
+  margin: 0 0 0.5rem;
+  padding-bottom: 0;
+  text-align: center;
+}
+
+.pasarela-page .success-modal h2::after {
+  display: none;
+}
+
+.pasarela-page .success-modal p {
+  font-size: 14px;
+  color: var(--gray-500);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.pasarela-page .success-ref {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gray-100);
+  padding: 8px 18px;
+  border-radius: 99px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--sky-deep);
+  margin-bottom: 2rem;
+}
+
+.pasarela-page .success-close {
+  background: var(--sky);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 13px 2.5rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pasarela-page .success-close:hover{ background: var(--sky-deep); }
+
+/* ── LOADING STATE ── */
+.pasarela-page .pay-btn.loading {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.pasarela-page .spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 880px) {
+  .pasarela-page .main-wrap {
+    grid-template-columns: 1fr;
+    padding: 1.5rem 1rem;
+  }
+
+  .pasarela-page .hero-strip{ padding: 1.25rem 1rem; }
+
+  .pasarela-page .route-city{ font-size: 24px; }
+  .pasarela-page .price-total{ font-size: 32px; }
+}

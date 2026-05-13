@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear cuenta | Lucky Airlines</title>
+
+  <meta name="description" content="Regístrate en Lucky Air para reservar vuelos y gestionar tu perfil.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="./registro.html">
+
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">Lucky Air 幸航</a>
+      <ul class="nav-menu">
+        <li><a href="../index.html" class="nav-link">Inicio</a></li>
+        <li class="dropdown">
+          <a href="#" class="nav-link">Descubre</a>
+          <ul class="dropdown-content">
+            <li><a href="../pages/comprar_boletos.html">Destinos</a></li>
+            <li><a href="../pages/comprar_boletos.html#ofertas">Ofertas</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="nav-link">Comunidad</a>
+          <ul class="dropdown-content">
+            <li><a href="../pages/comunidad.html#noticias">Noticias</a></li>
+            <li><a href="../pages/comunidad.html#blog">Blogs</a></li>
+          </ul>
+        </li>
+        <li><a href="../index.html#nosotros" class="nav-link">Nosotros</a></li>
+        <li><a href="../pages/contacto.html" class="nav-link">Contacto</a></li>
+        <li><a href="./registro.html" class="nav-link">Crear cuenta</a></li>
+        <li><a href="./login.html" class="nav-link">Iniciar sesión</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="login-wrapper">
+
+    <section class="search-box login-card">
+      <h2>Crea tu cuenta</h2>
+      <h3>Completa tus datos</h3>
+
+      <form id="formRegistro" action="#" method="post" aria-label="Formulario de registro">
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="regNombre">Nombre</label>
+            <input id="regNombre" name="nombre" type="text" autocomplete="given-name" placeholder="María"
+              minlength="2" maxlength="80" required>
+          </div>
+          <div class="field">
+            <label for="regApellido">Apellido</label>
+            <input id="regApellido" name="apellido" type="text" autocomplete="family-name" placeholder="García"
+              minlength="2" maxlength="80" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="regEmail">Correo electrónico</label>
+          <input id="regEmail" name="email" type="email" autocomplete="email" placeholder="tucorreo@ejemplo.com"
+            required>
+        </div>
+
+        <div class="field">
+          <label for="regTelefono">Teléfono</label>
+          <input id="regTelefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel"
+            placeholder="+51 999 000 000" pattern="[\d\s+().-]{9,20}" required>
+        </div>
+
+        <div class="field">
+          <label for="regPais">País de residencia</label>
+          <select id="regPais" name="pais" required>
+            <option value="" disabled selected>Selecciona un país</option>
+            <option value="PE">Perú</option>
+            <option value="CO">Colombia</option>
+            <option value="CL">Chile</option>
+            <option value="AR">Argentina</option>
+            <option value="MX">México</option>
+            <option value="ES">España</option>
+            <option value="CN">China</option>
+            <option value="OT">Otro</option>
+          </select>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="regPass">Contraseña</label>
+            <input id="regPass" name="password" type="password" autocomplete="new-password" minlength="8"
+              maxlength="128" required aria-describedby="regPassHint">
+            <p id="regPassHint" class="muted" style="margin-top: 0.35rem; font-size: 0.8rem;">Mínimo 8 caracteres.</p>
+          </div>
+          <div class="field">
+            <label for="regPass2">Confirmar contraseña</label>
+            <input id="regPass2" name="password2" type="password" autocomplete="new-password" minlength="8"
+              maxlength="128" required>
+            <p id="regPassError" class="msg-error" hidden role="alert">Las contraseñas no coinciden.</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label-inline" for="regTerminos">
+            <input id="regTerminos" name="terminos" type="checkbox" required>
+            Acepto los <a href="#" class="link-secundario">términos</a> y la <a href="#" class="link-secundario">política
+              de privacidad</a>
+          </label>
+        </div>
+
+        <input type="submit" value="Crear cuenta" class="btn-login">
+
+        <p class="muted">¿Ya tienes cuenta?
+          <a href="./login.html" class="link-secundario">Iniciar sesión</a>
+        </p>
+      </form>
+    </section>
+
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Lucky Air - Viaja seguro. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="../scripts/registro.js"></script>
+</body>
+
+</html>

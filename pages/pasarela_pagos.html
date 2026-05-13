@@ -1,191 +1,325 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pasarela de Pago | Lucky Airlines</title>
-
-  <meta name="description"
-    content="Pantalla de pasarela de pagos para compras en línea de Lucky Airlines. Confirma el resumen y completa el pago con tarjeta.">
-  <meta name="author" content="Heimer">
-  <meta name="robots" content="index,follow">
-  <meta name="keywords"
-    content="pasarela de pago, compra en línea, vuelos, Lucky Airlines, tarjeta, seguridad, Perú, USD">
-  <link rel="canonical" href="./index.html">
-
-  <meta property="og:title" content="Pasarela de Pago | Lucky Airlines">
-  <meta property="og:description" content="Confirma y paga tu compra en la pasarela (pantalla estática).">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="es_ES">
-  <meta property="og:image" content="./avion.jpg">
-
-  <link rel="stylesheet" href="/css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pasarela de pago — Kunming · Dali | Lucky Air</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/pasarela_pagos.css" />
 </head>
-
 <body>
-  <header class="site-header">
-    <div class="header-wrap">
-      <div class="brand">
-        <img class="brand-logo" src="/assets/images/avion.jpg" alt="Ilustración de avión para Lucky Airlines.">
-        <div>
-          <h1>Confirma y paga tu compra</h1>
-          <p class="subtitle">Completa tu compra de forma segura.</p>
+
+  <!-- NAVBAR (mismo criterio que login y demás páginas) -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">Lucky Air 幸航</a>
+      <ul class="nav-menu">
+        <li><a href="../index.html" class="nav-link">Inicio</a></li>
+        <li class="dropdown">
+          <a href="#" class="nav-link">Descubre</a>
+          <ul class="dropdown-content">
+            <li><a href="../pages/comprar_boletos.html">Destinos</a></li>
+            <li><a href="../pages/comprar_boletos.html#ofertas">Ofertas</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="nav-link">Comunidad</a>
+          <ul class="dropdown-content">
+            <li><a href="../pages/comunidad.html#noticias">Noticias</a></li>
+            <li><a href="../pages/comunidad.html#blog">Blogs</a></li>
+          </ul>
+        </li>
+        <li><a href="../index.html#nosotros" class="nav-link">Nosotros</a></li>
+        <li><a href="../pages/contacto.html" class="nav-link">Contacto</a></li>
+        <li><a href="./registro.html" class="nav-link">Crear cuenta</a></li>
+        <li><a href="./login.html" class="nav-link">Iniciar sesión</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="pasarela-page">
+
+  <!-- HERO STRIP -->
+  <div class="hero-strip">
+    <div class="flight-info">
+      <div class="flight-route">
+        <div class="route-city">
+          Kunming
+          <span class="route-code">KMG</span>
+        </div>
+        <div class="route-arrow">
+          <i class="ti ti-plane"></i>
+          <span>DIRECTO</span>
+        </div>
+        <div class="route-city">
+          Dali
+          <span class="route-code">DLU</span>
+        </div>
+      </div>
+      <div class="flight-meta">
+        <div class="flight-meta-item"><i class="ti ti-calendar"></i> Sáb 20 Jun 2026</div>
+        <div class="flight-meta-item"><i class="ti ti-clock"></i> 09:20 → 10:35</div>
+        <div class="flight-meta-item"><i class="ti ti-alarm"></i> 1h 15m</div>
+        <div class="flight-meta-item"><i class="ti ti-plane-departure"></i> LA 2083 · Yunnan</div>
+      </div>
+    </div>
+    <div class="flight-price-box">
+      <div class="price-label">Total a pagar</div>
+      <div class="price-total"><sup>$</sup>487.00</div>
+      <div class="price-breakdown">2 pasajeros · clase económica · China (Yunnan)</div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main-wrap">
+
+    <!-- PAYMENT FORM -->
+    <div class="pay-card">
+      <div class="pay-card-header">
+        <div class="pay-card-title">Información de pago</div>
+        <div class="security-badge"><i class="ti ti-shield-check"></i> Pago seguro SSL</div>
+      </div>
+      <div class="pay-card-body">
+
+        <!-- Method tabs -->
+        <div class="method-tabs">
+          <div class="method-tab active" onclick="selectMethod(this)">
+            <i class="ti ti-credit-card"></i>
+            <span class="method-tab-label">Tarjeta</span>
+          </div>
+          <div class="method-tab" onclick="selectMethod(this)">
+            <i class="ti ti-brand-paypal"></i>
+            <span class="method-tab-label">PayPal</span>
+          </div>
+          <div class="method-tab" onclick="selectMethod(this)">
+            <i class="ti ti-building-bank"></i>
+            <span class="method-tab-label">Transferencia</span>
+          </div>
+        </div>
+
+        <!-- Accepted cards -->
+        <div class="accepted-cards">
+          <span class="accepted-label">Aceptamos:</span>
+          <div class="card-badge"><i class="ti ti-brand-visa"></i> Visa</div>
+          <div class="card-badge"><i class="ti ti-credit-card"></i> Mastercard</div>
+          <div class="card-badge"><i class="ti ti-credit-card"></i> Amex</div>
+          <div class="card-badge"><i class="ti ti-credit-card"></i> Diners</div>
+        </div>
+
+        <!-- Cardholder -->
+        <div class="form-section-title">Datos del titular</div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label>Nombre</label>
+            <div class="input-wrap">
+              <input type="text" placeholder="ej. María" id="fname" />
+              <i class="ti ti-user"></i>
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Apellido</label>
+            <div class="input-wrap">
+              <input type="text" placeholder="ej. García" id="lname" />
+              <i class="ti ti-user"></i>
+            </div>
+          </div>
+          <div class="form-field full">
+            <label>Correo electrónico</label>
+            <div class="input-wrap">
+              <input type="email" placeholder="correo@ejemplo.com" id="email" />
+              <i class="ti ti-mail"></i>
+            </div>
+          </div>
+          <div class="form-field full">
+            <label>País de emisión</label>
+            <div class="input-wrap select-wrap">
+              <select aria-label="País de emisión">
+                <option value="">Selecciona tu país</option>
+                <option value="PE" selected>Perú</option>
+                <option value="CN">China</option>
+                <option value="CO">Colombia</option>
+                <option value="CL">Chile</option>
+                <option value="AR">Argentina</option>
+                <option value="MX">México</option>
+                <option value="US">Estados Unidos</option>
+                <option value="ES">España</option>
+              </select>
+              <i class="ti ti-world"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card data -->
+        <div class="form-section-title">Datos de la tarjeta</div>
+
+        <div class="form-field">
+          <label>Número de tarjeta</label>
+          <div class="input-wrap">
+            <input type="text" placeholder="0000  0000  0000  0000" id="cardnum" maxlength="19" oninput="formatCard(this)" />
+            <i class="ti ti-credit-card"></i>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label>Fecha de vencimiento</label>
+            <div class="input-wrap">
+              <input type="text" placeholder="MM / AA" id="expiry" maxlength="7" oninput="formatExpiry(this)" />
+              <i class="ti ti-calendar-event"></i>
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Código de seguridad (CVC)</label>
+            <div class="input-wrap">
+              <input type="password" placeholder="•••" id="cvc" maxlength="4" />
+              <i class="ti ti-shield-lock"></i>
+              <i class="ti ti-eye toggle-cvc" onclick="toggleCvc(this)" style="cursor:pointer;"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Terms -->
+        <div class="terms-row">
+          <input type="checkbox" id="terms" />
+          <label for="terms" class="terms-text" style="margin-bottom:0; font-size:13px; color:var(--gray-500);">
+            Acepto los <a href="#">Términos y Condiciones</a> de Lucky Air y la
+            <a href="#">Política de Privacidad</a>. Confirmo que los datos ingresados son correctos.
+          </label>
+        </div>
+
+        <!-- Pay button -->
+        <button class="pay-btn" id="payBtn" onclick="handlePay()">
+          <i class="ti ti-lock"></i>
+          Confirmar y pagar — $487.00
+        </button>
+
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <!-- Order summary -->
+      <div class="summary-card">
+        <div class="summary-header">
+          <div class="summary-title">Resumen de reserva</div>
+          <div class="flight-num-badge">LA 2083</div>
+        </div>
+        <div class="summary-body">
+          <div class="summary-route">
+            <div class="summary-city">KMG <small>Kunming</small></div>
+            <i class="ti ti-plane summary-plane"></i>
+            <div class="summary-city" style="text-align:right;">DLU <small>Dali</small></div>
+          </div>
+          <div class="summary-details">
+            <div class="summary-detail-row">
+              <span class="detail-key"><i class="ti ti-calendar"></i>Fecha</span>
+              <span class="detail-val">Sáb 20 Jun 2026</span>
+            </div>
+            <div class="summary-detail-row">
+              <span class="detail-key"><i class="ti ti-clock"></i>Salida</span>
+              <span class="detail-val">09:20 KMG</span>
+            </div>
+            <div class="summary-detail-row">
+              <span class="detail-key"><i class="ti ti-clock"></i>Llegada</span>
+              <span class="detail-val">10:35 DLU</span>
+            </div>
+            <div class="summary-detail-row">
+              <span class="detail-key"><i class="ti ti-armchair"></i>Clase</span>
+              <span class="detail-val">Económica</span>
+            </div>
+            <div class="summary-detail-row">
+              <span class="detail-key"><i class="ti ti-luggage"></i>Equipaje</span>
+              <span class="detail-val">1 maleta 23 kg</span>
+            </div>
+          </div>
+
+          <div class="summary-passengers">
+            <div class="passenger-row">
+              <span class="passenger-name"><i class="ti ti-user"></i> María García</span>
+              <span class="passenger-seat">12A</span>
+            </div>
+            <div class="passenger-row">
+              <span class="passenger-name"><i class="ti ti-user"></i> Carlos García</span>
+              <span class="passenger-seat">12B</span>
+            </div>
+          </div>
+
+          <div class="price-breakdown-card">
+            <div class="price-row">
+              <span class="key">Tarifas (×2 pax)</span>
+              <span class="val">$400.00</span>
+            </div>
+            <div class="price-row">
+              <span class="key">Tasas aeroportuarias</span>
+              <span class="val">$62.00</span>
+            </div>
+            <div class="price-row">
+              <span class="key">Seguro de viaje</span>
+              <span class="val">$25.00</span>
+            </div>
+            <div class="price-row total">
+              <span class="key">TOTAL</span>
+              <span class="val">$487.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="info-card">
+        <div class="info-item">
+          <div class="info-icon blue"><i class="ti ti-refresh"></i></div>
+          <div class="info-text">
+            <strong>Cancelación flexible</strong>
+            Reembolso completo hasta 24 h antes del vuelo.
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon gold"><i class="ti ti-receipt"></i></div>
+          <div class="info-text">
+            <strong>Confirmación inmediata</strong>
+            Tu itinerario llega a tu correo al instante.
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon green"><i class="ti ti-headset"></i></div>
+          <div class="info-text">
+            <strong>Soporte 24/7</strong>
+            Línea de atención: <strong>+51 01 611 9000</strong>
+          </div>
         </div>
       </div>
 
     </div>
-  </header>
+  </div>
 
-  <main class="container">
-    <section class="resumen" id="resumen" aria-label="Resumen del pago">
-      <div class="card card--tight">
-        <div class="resumen-top">
-          <div>
-            <h2>Total a pagar</h2>
-            <p class="muted">1 adulto · Ruta: Yunnan ↔ Dali · Moneda: USD</p>
-          </div>
-          <p class="total" aria-label="Total a pagar">USD 206.03</p>
-        </div>
+  <!-- SUCCESS OVERLAY -->
+  <div class="success-overlay" id="successOverlay">
+    <div class="success-modal">
+      <div class="success-icon"><i class="ti ti-check"></i></div>
+      <h2>¡Pago confirmado!</h2>
+      <p>Tu reserva en Lucky Air ha sido procesada con éxito.<br>Enviamos tu itinerario y los pases de abordar a tu correo electrónico.</p>
+      <div class="success-ref"><i class="ti ti-ticket"></i> Referencia: LA-2026-KMG48291</div>
+      <br/>
+      <button type="button" class="success-close" onclick="verMiReserva()">
+        Ver mi reserva
+      </button>
+    </div>
+  </div>
 
-        <table class="table" aria-label="Tabla de conceptos del pago">
-          <tr>
-            <th scope="col">Concepto</th>
-            <th scope="col">Cantidad</th>
-            <th scope="col">Total</th>
-            <th scope="col">Moneda</th>
-          </tr>
-          <tr>
-            <td>Boleto aéreo</td>
-            <td>1</td>
-            <td>206.03</td>
-            <td>USD</td>
-          </tr>
-          <tr>
-            <td>Seguro de viaje</td>
-            <td>1</td>
-            <td>0</td>
-            <td>USD</td>
-          </tr>
-          <tr>
-            <td>Impuestos</td>
-            <td>1</td>
-            <td>0</td>
-            <td>USD</td>
-          </tr>
-        </table>
+  </div>
 
-      </div>
-    </section>
-
-    <section class="medios" id="medios" aria-label="Medios de pago">
-      <h2>Medios de pago</h2>
-
-      <div class="banner-pago" role="region" aria-label="Opciones de pago digitales">
-        <div class="banner-ilustracion">
-          <img src="/assets/images/pagos.png" alt="Opciones de pago disponibles." class="banner-ilustracion-img">
-        </div>
-        <div class="banner-texto">
-          <p class="banner-titulo"> Cuotéalo, QR o con tu Lucky Wallet
-          </p>
-          <p class="banner-subtitulo">Obtén más opciones de pago y beneficios al iniciar sesión.</p>
-          <a class="link-secundario" href="./login.html">Iniciar sesión</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="opciones" role="group" aria-label="Selecciona un medio de pago (solo UI)">
-          <label class="opcion-pago" for="metodoTarjeta">
-            <span class="opcion-info">
-              <strong>Agregar tarjeta</strong>
-              <span>Débito con CVV o crédito Visa, Mastercard o American Express.</span>
-            </span>
-            <input id="metodoTarjeta" name="metodoPago" type="radio" checked>
-          </label>
-        </div>
-
-        <div id="formTarjeta" class="formulario" aria-label="Formulario de pago con tarjeta" hidden>
-          <h3>Agregar tarjeta</h3>
-
-          <div class="avisos" role="note" aria-label="Avisos de pago">
-            <p><strong>Para compras online</strong>, necesitas tener activa tu tarjeta.</p>
-            <ul>
-              <li>El tipo de cambio y cobro de intereses por cuotas dependen del banco emisor.</li>
-              <li>El cobro se realiza en USD; aplican las leyes vigentes.</li>
-              <li>Pagos internacionales con tarjeta de crédito pueden tener comisión del banco emisor.</li>
-            </ul>
-          </div>
-
-          <form id="pagoTarjetaForm" action="#" method="get" aria-label="Formulario de pago con tarjeta">
-            <div class="grid-2">
-              <div class="field">
-                <label for="numeroTarjeta">Número de tarjeta</label>
-                <input id="numeroTarjeta" name="numeroTarjeta" type="text" inputmode="numeric" autocomplete="cc-number"
-                  placeholder="1234 5678 9012 3456" pattern="[0-9 ]{12,23}" required>
-              </div>
-
-              <div class="field">
-                <label for="nombreTitular">Nombre y apellido</label>
-                <input id="nombreTitular" name="nombreTitular" type="text" autocomplete="cc-name"
-                  placeholder="Como aparece en la tarjeta" minlength="3" required>
-              </div>
-            </div>
-
-            <div class="grid-2">
-              <div class="field">
-                <label for="expiracion">Expiración</label>
-                <input id="expiracion" name="expiracion" type="month" autocomplete="cc-exp" required>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <section class="confirmacion" id="detalle" aria-label="Confirmación y pago">
-      <div class="card">
-        <h2>¿A dónde enviamos el comprobante de compra?</h2>
-        <p class="muted">La persona que reciba el comprobante será administradora del viaje y la única que podrá
-          solicitar cambios y devoluciones.</p>
-        <div class="field" style="margin-top:12px;">
-          <label for="emailComprobante">Email</label>
-          <input id="emailComprobante" name="emailComprobante" type="email" autocomplete="email"
-            placeholder="tucorreo@ejemplo.com" required form="pagoTarjetaForm">
-        </div>
-      </div>
-
-      <div class="card" style="margin-top:12px;">
-        <h2>¿Necesitas factura?</h2>
-        <div class="switch-row" role="group" aria-label="Solicitar factura">
-          <div class="switch-left">
-            <p class="switch-title">Solicitar Factura</p>
-          </div>
-          <label class="switch" for="solicitarFactura">
-            <input id="solicitarFactura" name="solicitarFactura" type="checkbox" form="pagoTarjetaForm">
-            <span class="slider" aria-hidden="true"></span>
-          </label>
-        </div>
-      </div>
-
-      <div class="terms-pay">
-        <label class="label-inline" for="terminos">
-          <input id="terminos" name="terminos" type="checkbox" required form="pagoTarjetaForm">
-          Al continuar acepto los términos y condiciones de la compra.
-        </label>
-
-        <button class="btn-pagar" type="button" onclick="window.location.href='boleto.html'">
-          Pagar
-        </button>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer" aria-label="Pie de página">
-    <p>© 2026 Lucky Airlines</p>
-    <p><a href="#resumen">Volver arriba</a></p>
+  <!-- FOOTER (mismo que el resto del sitio) -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Lucky Air - Viaja seguro. Todos los derechos reservados.</p>
+    </div>
   </footer>
 
-  <script src="/scripts/tarjeta.js"></script>
+  <script src="../scripts/pasarela_pagos.js"></script>
 </body>
-
 </html>

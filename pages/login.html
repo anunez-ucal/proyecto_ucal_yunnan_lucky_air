@@ -33,6 +33,7 @@
             <li><a href="../pages/comprar_boletos.html">Destinos</a></li>
             <li><a href="../pages/comprar_boletos.html#ofertas">Ofertas</a></li>
           </ul>
+        </li>
         <li class="dropdown">
           <a href="#" class="nav-link">Comunidad</a>
           <ul class="dropdown-content">
@@ -42,7 +43,8 @@
         </li>
         <li><a href="../index.html#nosotros" class="nav-link">Nosotros</a></li>
         <li><a href="../pages/contacto.html" class="nav-link">Contacto</a></li>
-        <li><a href="../pages/login.html" class="nav-link">Iniciar sesión</a></li>
+        <li><a href="./registro.html" class="nav-link">Crear cuenta</a></li>
+        <li><a href="./login.html" class="nav-link">Iniciar sesión</a></li>
       </ul>
     </div>
   </nav>
@@ -52,6 +54,8 @@
   <div class="login-wrapper">
 
     <section class="search-box login-card">
+      <p id="bannerRegistroOk" class="login-banner-ok oculto" role="status">Registro recibido (demo). Ya puedes iniciar
+        sesión con tu correo.</p>
       <h2>Ingresa tu usuario</h2>
       <h3>Ingresa tus datos:</h3>
 
@@ -83,13 +87,7 @@
         <input type="submit" value="Continuar" class="btn-login">
 
         <p class="muted">¿No tienes cuenta?
-          <a href="mailto:soporte@luckyairlines.com">Contáctanos</a>
-        </p>
-
-        <p>
-          <a class="link-secundario" href="../pages/pasarela_pagos.html">
-            ← Volver a la pasarela
-          </a>
+          <a href="./registro.html" class="link-secundario">Regístrate aquí</a>
         </p>
 
       </form>
@@ -104,6 +102,14 @@
     </div>
   </footer>
 
+  <script>
+    (function () {
+      if (new URLSearchParams(location.search).get('cuenta') === 'ok') {
+        var b = document.getElementById('bannerRegistroOk');
+        if (b) b.classList.remove('oculto');
+      }
+    })();
+  </script>
 </body>
 
 </html>
