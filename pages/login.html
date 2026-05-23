@@ -17,6 +17,8 @@
   <meta property="og:image" content="./avion.jpg">
 
   <link rel="stylesheet" href="../css/styles.css">
+  <script defer src="../scripts/database/users.js"></script>
+  <script defer src="../scripts/pages/login.js"></script>
 </head>
 
 <body>
@@ -59,8 +61,7 @@
       <h2>Ingresa tu usuario</h2>
       <h3>Ingresa tus datos:</h3>
 
-      <form action="./pasarela_pagos.html#medios" method="get" aria-label="Formulario de inicio de sesión">
-
+      <form id="formLogin" action="./pasarela_pagos.html#medios" method="get" aria-label="Formulario de inicio de sesión">
         <div class="grid-2">
 
           <div class="field">
@@ -111,5 +112,4 @@
     })();
   </script>
 </body>
-
 </html>
