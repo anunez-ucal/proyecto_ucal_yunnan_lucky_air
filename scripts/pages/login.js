@@ -2,37 +2,64 @@ const form = document.getElementById("formLogin");
 
 const emailInput = document.getElementById("loginEmail");
 const passInput = document.getElementById("loginPass");
+const emailError = document.getElementById("emailError");
+const passError = document.getElementById("passError");
 const recordarmeCheck = document.getElementById("recordarme");
 const submitBtn = form.querySelector(".btn-login");
 
+function limpiarErrores() {
+    emailError.classList.add("oculto");
+    passError.classList.add("oculto");
+    emailInput.classList.remove("input-error");
+    passInput.classList.remove("input-error");
+}
+
+emailInput.addEventListener("input", function () {
+    emailError.classList.add("oculto");
+    emailInput.classList.remove("input-error");
+});
+
+passInput.addEventListener("input", function () {
+    passError.classList.add("oculto");
+    passInput.classList.remove("input-error");
+});
+
 form.addEventListener("submit", function (e) {
     e.preventDefault();
+
+    limpiarErrores();
 
     if (!emailInput || !passInput) return;
 
     const email = emailInput.value.trim().toLowerCase();
     const password = passInput.value;
 
-    // Buscar coincidencia en la base de datos
-    const foundUser = users.find(
-        (user) => user.email.toLowerCase() === email && user.password === password
+    const userByEmail = users.find(
+        (user) => user.email.toLowerCase() === email
     );
 
-    if (!foundUser) {
-        console.error("Credenciales incorrectas");
-       // mostrar error
+    if (!userByEmail) {
+        emailError.classList.remove("oculto");
+        emailInput.classList.add("input-error");
+        emailInput.focus();
         return;
     }
 
-    // Guardar datos en la sesión activa (sin contraseña por seguridad)
+    if (userByEmail.password !== password) {
+        passError.classList.remove("oculto");
+        passInput.classList.add("input-error");
+        passInput.focus();
+        return;
+    }
+
     const sessionData = {
-        id: foundUser.id,
-        nombre: foundUser.nombre,
-        apellido: foundUser.apellido,
-        email: foundUser.email,
-        telefono: foundUser.telefono,
-        pais: foundUser.pais,
-        rol: foundUser.rol
+        id: userByEmail.id,
+        nombre: userByEmail.nombre,
+        apellido: userByEmail.apellido,
+        email: userByEmail.email,
+        telefono: userByEmail.telefono,
+        pais: userByEmail.pais,
+        rol: userByEmail.rol
     };
 
     localStorage.setItem("activeUser", JSON.stringify(sessionData));

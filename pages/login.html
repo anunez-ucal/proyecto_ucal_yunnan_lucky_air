@@ -68,12 +68,14 @@
             <label for="loginEmail">Email</label>
             <input id="loginEmail" name="email" type="email" autocomplete="email" placeholder="tucorreo@ejemplo.com"
               required>
+            <p class="msg-error oculto" id="emailError" role="alert">Correo no registrado</p>
           </div>
 
           <div class="field">
             <label for="loginPass">Contraseña</label>
             <input id="loginPass" name="password" type="password" autocomplete="current-password" minlength="6"
               required>
+            <p class="msg-error oculto" id="passError" role="alert">Contraseña incorrecta</p>
           </div>
 
         </div>
