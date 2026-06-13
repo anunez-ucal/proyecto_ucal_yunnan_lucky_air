@@ -44,3 +44,17 @@ const users = [
     fechaRegistro: "2026-04-12T18:15:00Z"
   }
 ];
+
+(function () {
+  var guardados = localStorage.getItem("registeredUsers");
+  if (guardados) {
+    try {
+      var extra = JSON.parse(guardados);
+      extra.forEach(function (u) {
+        if (!users.some(function (x) { return x.email === u.email; })) {
+          users.push(u);
+        }
+      });
+    } catch (_) {}
+  }
+})();

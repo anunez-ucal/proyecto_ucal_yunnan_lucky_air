@@ -1498,6 +1498,7 @@ h2::after {
     justify-content: center;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     padding: 2rem;
+    box-sizing: border-box;
 }
 
 .login-card {

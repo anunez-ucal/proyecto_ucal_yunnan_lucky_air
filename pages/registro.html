@@ -11,6 +11,8 @@
   <link rel="canonical" href="./registro.html">
 
   <link rel="stylesheet" href="../css/styles.css">
+  <script defer src="../scripts/database/users.js"></script>
+  <script defer src="../scripts/pages/registro.js"></script>
 </head>
 
 <body>
@@ -50,29 +52,32 @@
 
       <form id="formRegistro" action="#" method="post" aria-label="Formulario de registro">
 
-        <div class="grid-2">
-          <div class="field">
-            <label for="regNombre">Nombre</label>
-            <input id="regNombre" name="nombre" type="text" autocomplete="given-name" placeholder="María"
-              minlength="2" maxlength="80" required>
-          </div>
-          <div class="field">
-            <label for="regApellido">Apellido</label>
-            <input id="regApellido" name="apellido" type="text" autocomplete="family-name" placeholder="García"
-              minlength="2" maxlength="80" required>
-          </div>
+        <div class="field">
+          <label for="regNombre">Nombre</label>
+          <input id="regNombre" name="nombre" type="text" autocomplete="given-name" placeholder="María"
+            minlength="2" maxlength="80" required>
+          <p class="msg-error oculto" id="regNombreError" role="alert">Ingresa tu nombre (mín. 2 caracteres)</p>
+        </div>
+
+        <div class="field">
+          <label for="regApellido">Apellido</label>
+          <input id="regApellido" name="apellido" type="text" autocomplete="family-name" placeholder="García"
+            minlength="2" maxlength="80" required>
+          <p class="msg-error oculto" id="regApellidoError" role="alert">Ingresa tu apellido (mín. 2 caracteres)</p>
         </div>
 
         <div class="field">
           <label for="regEmail">Correo electrónico</label>
           <input id="regEmail" name="email" type="email" autocomplete="email" placeholder="tucorreo@ejemplo.com"
             required>
+          <p class="msg-error oculto" id="regEmailError" role="alert">El correo ya está registrado</p>
         </div>
 
         <div class="field">
           <label for="regTelefono">Teléfono</label>
           <input id="regTelefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel"
             placeholder="+51 999 000 000" pattern="[\d\s+().-]{9,20}" required>
+          <p class="msg-error oculto" id="regTelefonoError" role="alert">Ingresa un teléfono válido (9-20 dígitos)</p>
         </div>
 
         <div class="field">
@@ -88,21 +93,22 @@
             <option value="CN">China</option>
             <option value="OT">Otro</option>
           </select>
+          <p class="msg-error oculto" id="regPaisError" role="alert">Selecciona un país de residencia</p>
         </div>
 
-        <div class="grid-2">
-          <div class="field">
-            <label for="regPass">Contraseña</label>
-            <input id="regPass" name="password" type="password" autocomplete="new-password" minlength="8"
-              maxlength="128" required aria-describedby="regPassHint">
-            <p id="regPassHint" class="muted" style="margin-top: 0.35rem; font-size: 0.8rem;">Mínimo 8 caracteres.</p>
-          </div>
-          <div class="field">
-            <label for="regPass2">Confirmar contraseña</label>
-            <input id="regPass2" name="password2" type="password" autocomplete="new-password" minlength="8"
-              maxlength="128" required>
-            <p id="regPassError" class="msg-error" hidden role="alert">Las contraseñas no coinciden.</p>
-          </div>
+        <div class="field">
+          <label for="regPass">Contraseña</label>
+          <input id="regPass" name="password" type="password" autocomplete="new-password" minlength="8"
+            maxlength="128" required aria-describedby="regPassHint">
+          <p id="regPassHint" class="muted" style="margin-top: 0.35rem; font-size: 0.8rem;">Mínimo 8 caracteres.</p>
+          <p class="msg-error oculto" id="regPassError" role="alert">La contraseña debe tener al menos 8 caracteres</p>
+        </div>
+
+        <div class="field">
+          <label for="regPass2">Confirmar contraseña</label>
+          <input id="regPass2" name="password2" type="password" autocomplete="new-password" minlength="8"
+            maxlength="128" required>
+          <p class="msg-error oculto" id="regPass2Error" role="alert">Las contraseñas no coinciden</p>
         </div>
 
         <div class="field">
@@ -111,6 +117,7 @@
             Acepto los <a href="#" class="link-secundario">términos</a> y la <a href="#" class="link-secundario">política
               de privacidad</a>
           </label>
+          <p class="msg-error oculto" id="regTerminosError" role="alert">Debes aceptar los términos y condiciones</p>
         </div>
 
         <input type="submit" value="Crear cuenta" class="btn-login">
@@ -129,7 +136,6 @@
     </div>
   </footer>
 
-  <script src="../scripts/registro.js"></script>
 </body>
 
 </html>
