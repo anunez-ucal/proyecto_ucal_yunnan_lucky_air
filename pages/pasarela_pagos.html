@@ -67,7 +67,7 @@
     </div>
     <div class="flight-price-box">
       <div class="price-label">Total a pagar</div>
-      <div class="price-total"><sup>$</sup>487.00</div>
+      <div class="price-total" id="heroTotal"><sup>$</sup>487.00</div>
       <div class="price-breakdown">2 pasajeros · clase económica · China (Yunnan)</div>
     </div>
   </div>
@@ -85,20 +85,34 @@
 
         <!-- Method tabs -->
         <div class="method-tabs">
-          <div class="method-tab active" onclick="selectMethod(this)">
+          <div class="method-tab active" data-method="card" onclick="selectMethod(this)">
             <i class="ti ti-credit-card"></i>
             <span class="method-tab-label">Tarjeta</span>
           </div>
-          <div class="method-tab" onclick="selectMethod(this)">
+          <div class="method-tab" data-method="paypal" onclick="selectMethod(this)">
             <i class="ti ti-brand-paypal"></i>
             <span class="method-tab-label">PayPal</span>
           </div>
-          <div class="method-tab" onclick="selectMethod(this)">
+          <div class="method-tab" data-method="transfer" onclick="selectMethod(this)">
             <i class="ti ti-building-bank"></i>
             <span class="method-tab-label">Transferencia</span>
           </div>
         </div>
 
+        <!-- Mensajes alternativos (PayPal / Transferencia) -->
+        <div class="alt-method-panel hidden" id="altMethodPaypal">
+          <i class="ti ti-brand-paypal"></i>
+          <h3>Pago con PayPal</h3>
+          <p>Al confirmar serás redirigido a PayPal para completar el pago de forma segura. No necesitas ingresar datos de tarjeta aquí.</p>
+        </div>
+        <div class="alt-method-panel hidden" id="altMethodTransfer">
+          <i class="ti ti-building-bank"></i>
+          <h3>Transferencia bancaria</h3>
+          <p>Recibirás por correo las instrucciones y el número de cuenta para realizar la transferencia. Tu reserva quedará pendiente hasta confirmar el abono (24–48 h).</p>
+          <div class="transfer-hint"><strong>Banco:</strong> BCP · <strong>Cuenta:</strong> 193-12345678-0-12 · <strong>CCI:</strong> 002-193-001234567812-12</div>
+        </div>
+
+        <div id="cardFormSection">
         <!-- Accepted cards -->
         <div class="accepted-cards">
           <span class="accepted-label">Aceptamos:</span>
@@ -136,7 +150,7 @@
           <div class="form-field full">
             <label>País de emisión</label>
             <div class="input-wrap select-wrap">
-              <select aria-label="País de emisión">
+              <select id="country" aria-label="País de emisión">
                 <option value="">Selecciona tu país</option>
                 <option value="PE" selected>Perú</option>
                 <option value="CN">China</option>
@@ -158,7 +172,7 @@
         <div class="form-field">
           <label>Número de tarjeta</label>
           <div class="input-wrap">
-            <input type="text" placeholder="0000  0000  0000  0000" id="cardnum" maxlength="19" oninput="formatCard(this)" />
+            <input type="text" placeholder="••••  ••••  ••••  0000" id="cardnum" maxlength="22" autocomplete="off" />
             <i class="ti ti-credit-card"></i>
           </div>
         </div>
@@ -180,6 +194,7 @@
             </div>
           </div>
         </div>
+        </div><!-- /cardFormSection -->
 
         <!-- Terms -->
         <div class="terms-row">
@@ -191,9 +206,9 @@
         </div>
 
         <!-- Pay button -->
-        <button class="pay-btn" id="payBtn" onclick="handlePay()">
+        <button class="pay-btn" id="payBtn" type="button" disabled onclick="handlePay()">
           <i class="ti ti-lock"></i>
-          Confirmar y pagar — $487.00
+          <span id="payBtnText">Confirmar y pagar — $487.00</span>
         </button>
 
       </div>
@@ -257,13 +272,16 @@
               <span class="key">Tasas aeroportuarias</span>
               <span class="val">$62.00</span>
             </div>
-            <div class="price-row">
-              <span class="key">Seguro de viaje</span>
-              <span class="val">$25.00</span>
+            <div class="price-row insurance-row">
+              <label class="insurance-toggle">
+                <input type="checkbox" id="includeInsurance" checked />
+                <span class="key">Seguro de viaje</span>
+              </label>
+              <span class="val" id="insuranceVal">$25.00</span>
             </div>
             <div class="price-row total">
               <span class="key">TOTAL</span>
-              <span class="val">$487.00</span>
+              <span class="val" id="summaryTotal">$487.00</span>
             </div>
           </div>
         </div>
@@ -303,8 +321,15 @@
       <div class="success-icon"><i class="ti ti-check"></i></div>
       <h2>¡Pago confirmado!</h2>
       <p>Tu reserva en Lucky Air ha sido procesada con éxito.<br>Enviamos tu itinerario y los pases de abordar a tu correo electrónico.</p>
-      <div class="success-ref"><i class="ti ti-ticket"></i> Referencia: LA-2026-KMG48291</div>
-      <br/>
+      <div class="success-ref-wrap">
+        <div class="success-ref" id="successRef" title="Clic para copiar">
+          <i class="ti ti-ticket"></i>
+          <span>Referencia: <strong id="refCode">LA-2026-KMG48291</strong></span>
+          <i class="ti ti-copy success-ref-copy" aria-hidden="true"></i>
+        </div>
+        <span class="success-ref-hint">Clic para copiar al portapapeles</span>
+      </div>
+      <p class="success-countdown" id="successCountdown">Redirigiendo en 5 s…</p>
       <button type="button" class="success-close" onclick="verMiReserva()">
         Ver mi reserva
       </button>
